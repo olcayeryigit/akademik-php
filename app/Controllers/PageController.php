@@ -13,4 +13,12 @@ class PageController extends BaseController
     {
         return view('blog', ['title' => 'Blog']);
     }
+    public function login()
+    {
+        return view('login', ['title' => 'Login']);
+    }
+    public function dashboard()
+    {
+        return view('dashboard', ['title' => 'Dashboard']);
+    }
 }

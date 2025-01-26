@@ -21,7 +21,7 @@ body {
 
 .custom-checkbox {
   -moz-appearance: none;
-  appearance: none;
+       appearance: none;
   -webkit-appearance: none; /* Safari desteği */
   width: 20px;
   height: 20px;
@@ -140,7 +140,7 @@ body {
       transform: scale(0.95, 1.05);
     }
   }
-}
+} 
 /* Mobil ekranlar için buton boyutunu küçültme */
 @media (max-width: 768px) {
   .scroll-top {
@@ -156,6 +156,4 @@ body {
 .scroll-top:hover {
   background-color: #f0f0f0;
   cursor: pointer;
-} 
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

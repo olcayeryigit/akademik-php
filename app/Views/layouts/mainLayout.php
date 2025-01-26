@@ -8,14 +8,155 @@
 
 <link href="<?=site_url('assets/css/index.css')?>" rel="stylesheet" />
 <link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
-    
+     
+<!-- Bottom Buton -->
+<button class="scroll-top fixed right-4 bottom-8 z-[9999] flex items-center justify-center rounded-full p-2 opacity-0 transition-opacity duration-300">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+    <rect width="24" height="24" fill="white" rx="50" ry="50" />
+    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 4l-6 6m6-6l6 6m-6-6v10.5m0 5.5v-2.5"/>
+  </svg>
+</button>
+
+<!-- Wp Buton -->
+
+<a href="https://wa.me/905057508016" target="_blank" class="bg-[#25D366] fixed left-2 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-sm px-3">
+  <img src="/assets/icons/social/whatsapp.svg" class="h-6 object-contain"/>
+<span>Whatsapp</span>
+</a>
+<!-- Call Buton -->
+<a href="tel:4448016" target="_blank" class="bg-[#DC001E] fixed left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-sm px-3">
+<img src="/assets/icons/social/phone.svg" class="h-6 object-contain"/>
+
+<span>Hemen Ara</span>
+</a>
+
+
+<!-- Form  -->
+<div class="lg:hidden fixed top-1/2 -right-[285px] transform -translate-y-1/2 z-[9999] transition-all duration-500 ease-in-out" id="formContainer">
+
+  <div class="form-container h-[100vh] p-4 bg-[#FE7800] rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+  <img class="w-64 rounded-2xl border-white " src="assets/images/modal-image.jpg"/>
+  <form class="mt-4 space-y-4" action="#" method="POST">
+
+  <!-- Ad -->
+  <div>
+    <label for="name" class="block text-sm text-white font-bold">Adınız</label>
+    <div class="relative group">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <img src="/assets/icons/name.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+      </span>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        placeholder="Adınız"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Soyad -->
+  <div>
+    <label for="lastname" class="block text-sm text-white font-bold">Soyadınız</label>
+    <div class="relative group">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <img src="/assets/icons/name.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+      </span>
+      <input
+        type="text"
+        id="lastname"
+        name="lastname"
+        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        placeholder="Soyadınız"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Telefon Numarası -->
+  <div>
+    <label for="phone" class="block text-sm text-white font-bold">Telefon Numaranız</label>
+    <div class="relative group">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <img src="/assets/icons/phone-alt.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+      </span>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        placeholder="Telefon numaranız"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Mesaj -->
+  <div>
+    <label for="message" class="block text-sm text-white font-bold">Mesajınız</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="mt-1 block w-full px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+      placeholder="Mesajınızı yazınız"
+      required
+    ></textarea>
+  </div>
+
+
+    <button type="submit" class=" w-full py-2 bg-[#013042] text-white font-bold rounded-md hover:bg-[#0e3f51] transition duration-300">Gönder</button>
+  </form>
+  </div>
+  <button
+  id="toggleButton"
+  class="absolute top-44 -left-[79px] inline-flex items-center justify-center transform h-8 -rotate-90 w-32 bg-[#FE7800] rounded-tr-xl rounded-tl-xl "
+>
+  <div id="iconContainer" class="flex items-center gap-1 text-white">
+    <img id="openIcon" src="/assets/icons/message.svg" class="h-5" />
+    <svg
+      id="closeIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      class="text-white fill-white hidden"
+    >
+      <path
+        fill="none"
+        stroke="#fff"
+        stroke-dasharray="12"
+        stroke-dashoffset="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M12 12l7 7M12 12l-7 -7M12 12l-7 7M12 12l7 -7"
+      >
+        <animate
+          fill="freeze"
+          attributeName="stroke-dashoffset"
+          dur="0.3s"
+          values="12;0"
+        />
+      </path>
+    </svg>
+    <span id="buttonText" class="text-xs text-white">Ön Bilgi Formu</span>
+  </div>
+</button>
+
+</div>
+<!-- Form  -->
+
+
+    <header>
   <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
     <!-- Logo -->
     <a href="#home" class="logo flex items-center gap-2">
@@ -78,7 +219,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       </div>
   </div>
 </header>
-    </header>
+ 
 
     <main>
         <?= $this->renderSection('content') ?>
@@ -235,18 +376,20 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   </div>
     </footer>
 
-    <script type="module" src="<?=site_url('assets/js/main-slider.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/announcement-slider.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/blog-slider.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/testimonals-slider.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/header.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/form.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/about.js')?>"></script>
-<script type="module" src="<?=site_url('assets/js/top-button.js')?>"></script>
+    <script type="module" src="assets/js/main-slider.js"></script>
+<script type="module" src="assets/js/announcement-slider.js"></script>
+<script type="module" src="assets/js/blog-slider.js"></script>
+<script type="module" src="assets/js/testimonals-slider.js"></script>
+<script type="module" src="assets/js/header.js"></script>
+<script type="module" src="assets/js/form.js"></script>
+<script type="module" src="assets/js/about.js"></script>
+<script type="module" src="assets/js/top-button.js"></script>
 
 
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
+
 
 </body>
 </html>
