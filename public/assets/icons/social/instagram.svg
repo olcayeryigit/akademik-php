@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 67.55 67.57">
+  <defs>
+    <linearGradient id="Adsız_degrade_196" data-name="Adsız degrade 196" x1="33.77" y1="45.59" x2="33.77" y2="21.97" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9ae00"/>
+      <stop offset="1" stop-color="#aa0097"/>
+    </linearGradient>
+    <linearGradient id="Adsız_degrade_196-2" data-name="Adsız degrade 196" x1="33.77" y1="55.98" x2="33.77" y2="11.59" xlink:href="#Adsız_degrade_196"/>
+    <linearGradient id="Adsız_degrade_196-3" data-name="Adsız degrade 196" x1="45.37" y1="25.08" x2="45.37" y2="20.04" xlink:href="#Adsız_degrade_196"/>
+  </defs>
+  <g id="katman_1" data-name="katman 1">
+    <g>
+      <ellipse cx="33.77" cy="33.78" rx="33.77" ry="33.78" fill="#fff"/>
+      <g>
+        <path d="M33.77,45.59c-6.51,0-11.81-5.3-11.81-11.81s5.3-11.81,11.81-11.81,11.81,5.3,11.81,11.81-5.3,11.81-11.81,11.81ZM33.77,26.77c-3.87,0-7.01,3.15-7.01,7.01s3.14,7.01,7.01,7.01,7.01-3.15,7.01-7.01-3.14-7.01-7.01-7.01Z" fill="url(#Adsız_degrade_196)"/>
+        <path d="M42.77,55.98h-17.99c-7.27,0-13.19-5.92-13.19-13.19v-18c0-7.28,5.92-13.19,13.19-13.19h17.99c7.27,0,13.19,5.92,13.19,13.19v18c0,7.28-5.92,13.19-13.19,13.19ZM24.78,16.39c-4.63,0-8.39,3.77-8.39,8.4v18c0,4.63,3.77,8.4,8.39,8.4h17.99c4.63,0,8.39-3.77,8.39-8.4v-18c0-4.63-3.77-8.4-8.39-8.4h-17.99Z" fill="url(#Adsız_degrade_196-2)"/>
+        <path d="M45.37,25.08c-1.39,0-2.52-1.13-2.52-2.52s1.13-2.52,2.52-2.52,2.52,1.13,2.52,2.52-1.13,2.52-2.52,2.52Z" fill="url(#Adsız_degrade_196-3)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -6,11 +6,11 @@ class PageController extends BaseController
 {
     public function home()
     {
-        return view('home');
+        return view('home', ['title' => 'Home']);
     }
 
-    public function login()
+    public function blog()
     {
-        return view('login');
+        return view('blog', ['title' => 'Blog']);
     }
 }

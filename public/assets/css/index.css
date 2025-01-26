@@ -1,0 +1,160 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap");
+body {
+  font-family: "Lato", "Open Sans", sans-serif;
+}
+
+@keyframes bgGradientChange {
+  0% {
+    background: linear-gradient(45deg, #145be9, #4ae922); /* İlk gradyan renkleri */
+  }
+  50% {
+    background: linear-gradient(45deg, #4ae922, #ee2b2b); /* Orta gradyan renkleri */
+  }
+  100% {
+    background: linear-gradient(45deg, #ee2b2b, #145be9); /* Son gradyan renkleri */
+  }
+}
+.animate-bg-color {
+  animation: bgGradientChange 5s infinite alternate;
+}
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none; /* Safari desteği */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative; /* ::after için referans noktası oluşturur */
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* İşaretli durum */
+.custom-checkbox:checked {
+  background-color: #10b981; /* Tailwind'in green-500 rengi */
+  border-color: #10b981;
+}
+
+/* Checkbox'ın içindeki tik */
+.custom-checkbox:checked::after {
+  content: "";
+  background-image: url("/assets/icons/tick.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: 16px; /* İkon boyutu */
+  height: 16px; /* İkon boyutu */
+  position: absolute; /* Checkbox içinde konumlandırma için */
+  top: 50%; /* Yatay ortalama */
+  left: 50%; /* Dikey ortalama */
+  transform: translate(-50%, -50%); /* Gerçek ortalama */
+}
+
+@media (max-width: 640px) {
+  .announcement-swiper-button-prev {
+    left: 10px;
+    bottom: 16px;
+  }
+  .announcement-swiper-button-next {
+    left: 70px;
+    bottom: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  #mobile-menu-button {
+    display: none !important;
+  }
+}
+/* Hamburger iconunun başlangıç stilini belirleyelim */
+#mobile-menu-button {
+  width: 25px;
+  height: 20px;
+  position: relative;
+  display: block;
+  margin-right: 10px;
+}
+
+#mobile-menu-button .line {
+  display: block;
+  background: #000000;
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+#mobile-menu-button .line.line-1 {
+  top: 0;
+}
+
+#mobile-menu-button .line.line-2 {
+  top: 50%;
+}
+
+#mobile-menu-button .line.line-3 {
+  top: 100%;
+}
+
+/* Hamburger aktif olduğunda dönüşüm */
+/* Hamburger aktif olduğunda dönüşüm */
+#mobile-menu-button.active .line.line-1 {
+  transform: translateY(10px) rotate(45deg); /* Çizgiyi yukarı kaydır ve döndür */
+}
+
+#mobile-menu-button.active .line.line-2 {
+  display: none;
+}
+
+#mobile-menu-button.active .line.line-3 {
+  transform: translateY(-10px) rotate(-45deg); /* Çizgiyi aşağı kaydır ve ters döndür */
+}
+
+@layer reset, support, styling, demo;
+/* Demo Layer */
+@layer demo {
+  .btn {
+    display: inline-block;
+  }
+  .btn:hover, .btn:focus {
+    animation: gelatine 0.5s 1;
+    transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+  }
+  @keyframes gelatine {
+    0%, 100% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(0.9, 1.1);
+    }
+    50% {
+      transform: scale(1.1, 0.9);
+    }
+    75% {
+      transform: scale(0.95, 1.05);
+    }
+  }
+} 
+/* Mobil ekranlar için buton boyutunu küçültme */
+@media (max-width: 768px) {
+  .scroll-top {
+    width: 45px;
+    height: 45px;
+  }
+  .scroll-top svg {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+/* Hover efekti */
+.scroll-top:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */

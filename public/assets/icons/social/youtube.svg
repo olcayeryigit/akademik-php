@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 67.55 67.57">
+  <defs>
+    <linearGradient id="_Безымянный_градиент_29" data-name="Безымянный градиент 29" x1="12.86" y1="33.78" x2="54.69" y2="33.78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f40600"/>
+      <stop offset="1" stop-color="#b50415"/>
+    </linearGradient>
+  </defs>
+  <g id="katman_1" data-name="katman 1">
+    <g>
+      <ellipse cx="33.77" cy="33.78" rx="33.77" ry="33.78" fill="#fff"/>
+      <g>
+        <rect x="12.86" y="18.99" width="41.83" height="29.59" rx="2.11" ry="2.11" fill="url(#_Безымянный_градиент_29)"/>
+        <polygon points="29.09 40.02 29.09 27.62 40.16 33.82 29.09 40.02" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

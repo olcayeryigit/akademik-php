@@ -8,4 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/db-test', 'DatabaseTest::index');
 
 $routes->get('/', 'PageController::home'); // Ana sayfa
-$routes->get('/login', 'PageController::login'); // Login sayfası
+$routes->get('/blog', 'PageController::blog'); // Blog sayfası

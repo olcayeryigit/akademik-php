@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 67.55 67.57">
+  <defs>
+    <linearGradient id="_Безымянный_градиент_33" data-name="Безымянный градиент 33" x1="14.64" y1="34.22" x2="52.52" y2="34.22" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#232a49"/>
+      <stop offset="1" stop-color="#161824"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_33-2" data-name="Безымянный градиент 33" x1="16.34" y1="33.78" x2="51.2" y2="33.78" xlink:href="#_Безымянный_градиент_33"/>
+  </defs>
+  <g id="katman_1" data-name="katman 1">
+    <g>
+      <ellipse cx="33.77" cy="33.78" rx="33.77" ry="33.78" fill="#fff"/>
+      <polygon points="52.52 51.37 40.57 51.37 14.64 17.07 26.59 17.07 52.52 51.37" fill="url(#_Безымянный_градиент_33)"/>
+      <g>
+        <polygon points="22.15 50.93 16.34 50.93 29.82 35.54 29.44 35.03 45.46 16.63 51.2 16.63 38.48 31.19 38.75 31.54 22.15 50.93" fill="url(#_Безымянный_градиент_33-2)"/>
+        <polygon points="46.59 47.41 43.19 47.41 22.41 20.09 25.81 20.09 46.59 47.41" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
