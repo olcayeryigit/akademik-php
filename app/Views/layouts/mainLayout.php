@@ -6,16 +6,18 @@
     <title><?= $title ?? 'My Website' ?></title>
 <!-- custom css -->
 
-<link href="<?=site_url('assets/css/index.css')?>" rel="stylesheet" />
+<link href="assets/css/style.css" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Swiper CSS (CDN) -->
 <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
-    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
-     
+    
 <!-- Bottom Buton -->
 <button class="scroll-top fixed right-4 bottom-8 z-[9999] flex items-center justify-center rounded-full p-2 opacity-0 transition-opacity duration-300">
   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
@@ -23,6 +25,7 @@
     <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 4l-6 6m6-6l6 6m-6-6v10.5m0 5.5v-2.5"/>
   </svg>
 </button>
+
 
 <!-- Wp Buton -->
 
@@ -36,6 +39,7 @@
 
 <span>Hemen Ara</span>
 </a>
+
 
 
 <!-- Form  -->
@@ -156,8 +160,10 @@
 <!-- Form  -->
 
 
+    <!-- Header -->
     <header>
-  <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
+
+    <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
     <!-- Logo -->
     <a href="#home" class="logo flex items-center gap-2">
       <div class="bg-white rounded-full px-1 py-2">
@@ -219,7 +225,6 @@
       </div>
   </div>
 </header>
- 
 
     <main>
         <?= $this->renderSection('content') ?>
@@ -376,19 +381,20 @@
   </div>
     </footer>
 
-    <script type="module" src="assets/js/main-slider.js"></script>
-<script type="module" src="assets/js/announcement-slider.js"></script>
-<script type="module" src="assets/js/blog-slider.js"></script>
-<script type="module" src="assets/js/testimonals-slider.js"></script>
-<script type="module" src="assets/js/header.js"></script>
-<script type="module" src="assets/js/form.js"></script>
-<script type="module" src="assets/js/about.js"></script>
-<script type="module" src="assets/js/top-button.js"></script>
+  <!-- Swiper JS (CDN) -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
 
+    <!-- Custom Js -->
 
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
+    <script type="module" src="/assets/js/main-slider.js"></script>
+<script type="module" src="/assets/js/announcement-slider.js"></script>
+<script type="module" src="/assets/js/blog-slider.js"></script>
+<script type="module" src="/assets/js/testimonals-slider.js"></script>
+<script type="module" src="/assets/js/header.js"></script>
+<script type="module" src="/assets/js/form.js"></script>
+<script type="module" src="/assets/js/about.js"></script>
+<script type="module" src="/assets/js/top-button.js"></script>
 
 
 </body>
