@@ -230,20 +230,20 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <?= $this->renderSection('content') ?>
     </main>
 
-    <footer class="relative bg-[url('/assets/images/footer-bg.jpg')] bg-cover bg-center py-8">
+    <footer class="relative bg-[url('/assets/images/footer-bg.jpg')] bg-cover bg-center py-4">
   <!-- Arka Plan Katmanı -->
   <div class="absolute inset-0 w-full h-full bg-[#010F1F]/90 z-0"></div>
 
   <!-- İçerik -->
   <div class="relative container mx-auto z-50">
     <!-- Üst Kısım -->
-    <div class="border-b border-gray-300 py-6">
-      <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
+    <div class="border-b border-gray-300 py-6 ">
+      <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-12">
         <!-- Sol: Logo ve Tanım -->
-        <div class="w-full md:w-1/3 mb-6 md:mb-0 flex flex-col justify-center items-center">
-          <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-20 md:h-24 object-contain">
-          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-8 md:h-10 object-contain">
-          <p class="text-[#FEFEFE] mt-3 text-center">
+        <div class="w-full md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
+          <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-16 md:h-24 object-contain">
+          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-6 md:h-8 object-contain">
+          <p class="text-[#FEFEFE] mt-3 text-center text-sm px-2 md:px-0 ">
             Eşitlik, hoşgörü, adalet ve toplum değerlerimiz, eğitim misyonumuza derinden etki eden faktörler olmuştur.
           </p>
         </div>
@@ -253,8 +253,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
          <div class="flex justify-center gap-24 md:gap-0 w-full  md:justify-between md:w-1/3">
         <div class="md:w-1/2 ">
-          <h3 class="text-lg font-bold mb-2 text-[#FEFEFE]   inline-block border-b-2 border-white pb-1">Hızlı Menü</h3>
-          <ul class="space-y-2 text-[#F8F8F8]">
+          <h3 class="text-md font-bold mb-2 text-[#FEFEFE]   inline-block border-b-2 border-white pb-1">Hızlı Menü</h3>
+          <ul class="space-y-2 text-[#F8F8F8] text-sm">
             <li><a href="#home" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#about" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
@@ -266,8 +266,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
         <!-- Eğitimlerimiz -->
         <div class="md:w-1/2">
-          <h3 class="font-bold mb-2 text-[#FEFEFE] inline-block border-b-2 border-white pb-1 text-lg">Eğitimlerimiz</h3>
-          <ul class="space-y-2 text-[#F8F8F8]">
+          <h3 class="font-bold mb-2 text-[#FEFEFE] inline-block border-b-2 border-white pb-1 text-md">Eğitimlerimiz</h3>
+          <ul class="space-y-2 text-[#F8F8F8] text-sm">
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
@@ -287,7 +287,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       <div class="flex flex-col md:flex-row  flex-nowrap justify-between gap-8 ">
         <!-- Sol: Haber Bülteni -->
         <div class="w-full md:w-1/3 p-4">
-  <h3 class="font-bold mb-4 text-[#FEFEFE] text-xl">Haberdar Ol!</h3>
+  <h3 class="font-bold mb-4 text-[#FEFEFE] text-lg">Haberdar Ol!</h3>
   <p class="text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
   <form class="relative w-full">
     <!-- E-posta Girişi -->
@@ -295,11 +295,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       <input
         type="email"
         placeholder="E-POSTA"
-        class="bg-white bg-opacity-30 px-4 py-3 rounded-lg w-full pr-20 placeholder-text-gray-200 focus:outline-none text-white "
+        class="bg-white bg-opacity-30 px-4 py-2 rounded-lg w-full pr-20 placeholder-text-gray-200 focus:outline-none text-white "
       />
       <button
         type="submit"
-        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FF3D00] text-white px-4 py-2 rounded-lg hover:bg-[#FF3D00] border border-white font-bold text-sm"
+        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FF3D00] text-white px-4 py-1 rounded-md hover:bg-[#FF3D00] border border-white font-bold text-sm"
       >
         GÖNDER
       </button>
@@ -322,8 +322,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <!-- Orta: Sosyal Medya -->
         <div class="w-full md:w-1/3 flex px-4 md:px-0 md:ms-8">
           <div>
-          <h3 class="font-bold mb-4 text-[#FEFEFE] text-xl">Bizi Takip Edin!</h3>
-          <p class="text-[#FEFEFE]">Güncel sosyal medya ve dijital platformlarımızdan kampanya, etkinlik ve satışlarımız içni takipte kal.
+          <h3 class="font-bold mb-4 text-[#FEFEFE] text-lg">Bizi Takip Edin!</h3>
+          <p class="text-[#FEFEFE] text-sm">Güncel sosyal medya ve dijital platformlarımızdan kampanya, etkinlik ve satışlarımız içni takipte kal.
 
 </p>
           <ul class="flex gap-1 mt-4 mb-4 ">
@@ -351,7 +351,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       
     </a>
 
-      <p class="">Çağrı merkezimiz üzerinden müşteri temsilcilerimiz ile sorunlarınıza 7/24 destek ile yanınızdayız.</p>
+      <p class="text-sm">Çağrı merkezimiz üzerinden müşteri temsilcilerimiz ile sorunlarınıza 7/24 destek ile yanınızdayız.</p>
 
         </div>
       </div>
