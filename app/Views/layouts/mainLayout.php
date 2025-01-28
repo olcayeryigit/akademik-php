@@ -186,7 +186,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <li><a href="#about" class="hover:text-[#760E0E]">Hakkımızda</a></li>
         <li><a href="#" class="hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="/assets/icons/header-ok.svg" class="h-2 object-contain" /></a></li>
         <li><a href="#blog" class="hover:text-[#760E0E]">Blog</a></li>
-        <li><a href="#instituonal" class="hover:text-[#760E0E]">Kurumsal</a></li>
       </ul>
     </nav>
 
@@ -256,7 +255,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
             <li><a href="#home" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#about" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Kurumsal</a></li>
             <li><a href="#blog" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
           </ul>
@@ -269,7 +267,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Kurumsal</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
           </ul>

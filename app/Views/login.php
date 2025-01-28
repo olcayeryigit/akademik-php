@@ -6,8 +6,8 @@
   <title>Giriş Yap</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 h-screen flex justify-center items-center">
-
+<body class="bg-gray-100  ">
+<div class="w-full container mx-auto flex justify-center py-12">
   <div class="bg-white p-8 rounded-lg shadow-md w-96">
     <h2 class="text-2xl font-semibold text-center mb-6">Giriş Yap</h2>
 
@@ -29,6 +29,6 @@
     </form>
 
   </div>
-
+</div>
 </body>
 </html>
