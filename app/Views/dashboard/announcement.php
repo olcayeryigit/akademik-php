@@ -63,19 +63,20 @@
             <input type="hidden" id="update_id2" name="id">
 
             <div>
-                <label for="update_title" class="block text-sm font-medium text-gray-700">Başlık</label>
+                <label for="update_title2" class="block text-sm font-medium text-gray-700">Başlık</label>
                 <input type="text" id="update_title2" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
             </div>
 
             <div>
-                <label for="update_description" class="block text-sm font-medium text-gray-700">Açıklama</label>
+                <label for="update_description2" class="block text-sm font-medium text-gray-700">Açıklama</label>
                 <textarea id="update_description2" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
 
             <div>
-                <label for="update_image" class="block text-sm font-medium text-gray-700">Resim</label>
+                <label for="update_image2" class="block text-sm font-medium text-gray-700">Resim</label>
                 <input type="file" id="update_image2" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                <img id="update_image_preview2" src="" alt="Mevcut Blog Resmi" class="mt-2 w-32 h-32 object-cover rounded-md" />
+                <img id="update_image_preview2"  src="" alt="Mevcut Blog Resmi" class="mt-2 w-32 h-32 object-cover rounded-md" />
+
             </div>
 
             <div class="flex justify-end">
@@ -91,8 +92,10 @@
         document.getElementById('update_id2').value = id;
         document.getElementById('update_title2').value = title;
         document.getElementById('update_description2').value = description;
-        document.getElementById('update_image_preview2').src = "/assets/" + image;
+        document.getElementById('update_image_preview2').src ='/'+image;
         document.getElementById('updateForm2').classList.remove('hidden');
+
+
     }
 
 

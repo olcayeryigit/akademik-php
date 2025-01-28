@@ -41,12 +41,10 @@ public function store(){
 
     $image=$this->request->getFile('image');
     $imagePath='';
-    if($image && $image ->isValid() && !$image->hasMoved()){
-        $imagePath='assets/uploads/'.$image->getName();
-        $image->move(FCPATH . 'assets/uploads',$image->getName());
-
+    if ($image && $image->isValid() && !$image->hasMoved()) {
+        $imagePath = 'assets/uploads/' . $image->getName();
+        $image->move(FCPATH . 'assets/uploads', $image->getName());
     }
-
 
     $model=new AnnouncementModel();
     $model->save([
@@ -78,11 +76,11 @@ $description=$this->request->getPost('description');
 $image=$this->request->getFile('image');
         // Yeni resim varsa mevcut resmin üzerine yazılır
 $imagePath='';
-if($image && $image->isValid() && !$image->hasMoved()){
-    $imagePath='assets/uploads' . $image->getName();
-    $image->move(FCPATH . 'assets/uploads' , $image->getName());
+$imagePath = '';
+if ($image && $image->isValid() && !$image->hasMoved()) {
+    $imagePath = 'assets/uploads/' . $image->getName();
+    $image->move(FCPATH. 'assets/uploads', $image->getName());
 }
-
 $model=new AnnouncementModel();
 $model->update($id,[
     'title'=>$title,

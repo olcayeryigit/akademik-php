@@ -91,7 +91,7 @@
         document.getElementById('update_id').value = id;
         document.getElementById('update_title').value = title;
         document.getElementById('update_description').value = description;
-        document.getElementById('update_image_preview').src = "/assets/" + image;
+        document.getElementById('update_image_preview').src = "/" + image;
         document.getElementById('updateForm').classList.remove('hidden');
     }
 
