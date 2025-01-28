@@ -35,10 +35,13 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
           İçerik Yönetimi
         </button>
 
-        <div id="dropdownMenu" class="absolute hidden bg-blue-700 text-white w-full mt-2 rounded-md shadow-lg">
-        <button class="p-2 bg-blue-700 text-white rounded-md w-full text-left" id="blogLink">
-                            Blog
+        <div id="dropdownMenu" class=" absolute hidden bg-blue-700 text-white w-full mt-2 rounded-md shadow-lg">
+        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="blogLink">
+                            Bloglar
                         </button>   
+                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="duyuruLink">
+                           Duyurular
+                        </button>  
         </div>
       </div>
 
@@ -64,23 +67,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
     <script type="module" src="/assets/js/dashboard-header.js"></script>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const blogLink = document.getElementById("blogLink");
-    const blogContainer = document.getElementById("blog-container");
-
-    // Blog linkine tıklandığında çalışacak fonksiyon
-    blogLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        
-        // Eğer container gizliyse, görünür yap, görünürse gizle
-        if (blogContainer.style.display === "none" || blogContainer.style.display === "") {
-            blogContainer.style.display = "block"; // Görünür yap
-        } 
-    });
-});
-
-    </script>
+   
 
 </body>
 </html>
