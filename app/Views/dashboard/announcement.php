@@ -1,6 +1,6 @@
 
-<div class="duyuru-container container mx-auto p-6" id="duyuru-container" style="display: none;">
-    <h1 class="text-2xl font-bold mb-4">Bloglar</h1>
+<div class="announcement-container container mx-auto p-6" id="announcement-container" style="display: none;">
+    <h1 class="text-2xl font-bold mb-4">Duyurular</h1>
 
     <!-- Blog Ekleme Formu -->
     <div class="mb-6">
@@ -92,7 +92,7 @@
         document.getElementById('update_id2').value = id;
         document.getElementById('update_title2').value = title;
         document.getElementById('update_description2').value = description;
-        document.getElementById('update_image_preview2').src ='/'+image;
+        document.getElementById('update_image_preview2').src ="/"+image;
         document.getElementById('updateForm2').classList.remove('hidden');
 
 

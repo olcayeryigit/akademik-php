@@ -39,7 +39,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="blogLink">
                             Bloglar
                         </button>   
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="duyuruLink">
+                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="announcementLink">
                            Duyurular
                         </button>  
                         <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="aboutLink">
