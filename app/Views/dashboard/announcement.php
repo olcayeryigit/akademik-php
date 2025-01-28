@@ -1,11 +1,11 @@
 
-<div class="blog-container container mx-auto p-6" id="blog-container" style="display: none;">
+<div class="duyuru-container container mx-auto p-6" id="duyuru-container" style="display: none;">
     <h1 class="text-2xl font-bold mb-4">Bloglar</h1>
 
     <!-- Blog Ekleme Formu -->
     <div class="mb-6">
         <h2 class="text-xl font-semibold mb-4">Yeni Blog Ekle</h2>
-        <form action="/blog/store" method="post" enctype="multipart/form-data">
+        <form action="/announcement/store" method="post" enctype="multipart/form-data">
             <div>
                 <label for="title" class="block text-sm font-medium text-gray-700">Başlık</label>
                 <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
@@ -37,14 +37,14 @@
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($blogs)): ?>
-                <?php foreach ($blogs as $blog): ?>
+            <?php if (!empty($announcements)): ?>
+                <?php foreach ($announcements as $announcement): ?>
                     <tr>
-                        <td class="py-2 px-4 border-b"><?= $blog['id'] ?></td>
-                        <td class="py-2 px-4 border-b"><?= $blog['title'] ?></td>
+                        <td class="py-2 px-4 border-b"><?= $announcement['id'] ?></td>
+                        <td class="py-2 px-4 border-b"><?= $announcement['title'] ?></td>
                         <td class="py-2 px-4 border-b">
-                            <a href="#" onclick="showUpdateForm(<?= $blog['id'] ?>, '<?= $blog['title'] ?>', '<?= $blog['description'] ?>', '<?= $blog['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
-                            <a href="/blog/delete/<?= $blog['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
+                            <a href="#" onclick="showUpdateForm2(<?= $announcement['id'] ?>, '<?= $announcement['title'] ?>', '<?= $announcement['description'] ?>', '<?= $announcement['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
+                            <a href="/announcement/delete/<?= $announcement['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -57,25 +57,25 @@
     </table>
 
     <!-- Güncelleme Formu -->
-    <div id="updateForm" class="hidden mt-6">
+    <div id="updateForm2" class="hidden mt-6">
         <h2 class="text-xl font-semibold mb-4">Blog Güncelle</h2>
-        <form action="/blog/update" method="post" enctype="multipart/form-data">
-            <input type="hidden" id="update_id" name="id">
+        <form action="/announcement/update" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="update_id2" name="id">
 
             <div>
                 <label for="update_title" class="block text-sm font-medium text-gray-700">Başlık</label>
-                <input type="text" id="update_title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                <input type="text" id="update_title2" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
             </div>
 
             <div>
                 <label for="update_description" class="block text-sm font-medium text-gray-700">Açıklama</label>
-                <textarea id="update_description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                <textarea id="update_description2" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
 
             <div>
                 <label for="update_image" class="block text-sm font-medium text-gray-700">Resim</label>
-                <input type="file" id="update_image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                <img id="update_image_preview" src="" alt="Mevcut Blog Resmi" class="mt-2 w-32 h-32 object-cover rounded-md" />
+                <input type="file" id="update_image2" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <img id="update_image_preview2" src="" alt="Mevcut Blog Resmi" class="mt-2 w-32 h-32 object-cover rounded-md" />
             </div>
 
             <div class="flex justify-end">
@@ -87,12 +87,12 @@
 
 <script>
     // Güncelleme formunu göster
-    function showUpdateForm(id, title, description, image) {
-        document.getElementById('update_id').value = id;
-        document.getElementById('update_title').value = title;
-        document.getElementById('update_description').value = description;
-        document.getElementById('update_image_preview').src = "/assets/" + image;
-        document.getElementById('updateForm').classList.remove('hidden');
+    function showUpdateForm2(id, title, description, image) {
+        document.getElementById('update_id2').value = id;
+        document.getElementById('update_title2').value = title;
+        document.getElementById('update_description2').value = description;
+        document.getElementById('update_image_preview2').src = "/assets/" + image;
+        document.getElementById('updateForm2').classList.remove('hidden');
     }
 
 

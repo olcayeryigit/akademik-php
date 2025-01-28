@@ -32,7 +32,7 @@
 <?php foreach ($blogs as $blog): ?>
     <div class="swiper-slide">
         <div class="card bg-white rounded-lg p-4">
-            <img src="<?= base_url('' . $blog['image']); ?>" alt="Blog Image" class="w-full h-32 object-cover rounded-lg" />
+            <img src="<?= base_url('' . $blog['image']); ?>" alt="Blog Resmi" class="w-full h-32 object-cover rounded-lg" />
             <div class="card-content mt-4">
                 <h3 class="text-md font-semibold"><?= esc($blog['title']); ?></h3>
                 <p class="text-gray-600 mt-2 line-clamp-2 text-sm"><?= esc($blog['description']); ?></p>

@@ -51,7 +51,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       </a>
       </div>
       <!-- Çıkış Yap Linki -->
-      <a href="/logout" class="p-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Çıkış Yap</a>
+      <a href="/login" class="p-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Çıkış Yap</a>
     </div>
   </header>
 
