@@ -17,8 +17,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
 </head>
 <body>
-    
-<!-- Bottom Buton -->
+   <!-- Bottom Buton -->
 <button class="scroll-top fixed right-4 bottom-8 z-[9999] flex items-center justify-center rounded-full p-2 opacity-0 transition-opacity duration-300">
   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
     <rect width="24" height="24" fill="white" rx="50" ry="50" />
@@ -29,18 +28,19 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
 <!-- Wp Buton -->
 
-<a href="https://wa.me/905057508016" target="_blank" class="bg-[#25D366] fixed left-2 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-sm px-3">
-  <img src="/assets/icons/social/whatsapp.svg" class="h-6 object-contain"/>
+<a href="https://wa.me/905057508016" target="_blank" class="bg-[#25D366] fixed left-2 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
+  <img src="/assets/icons/social/whatsapp.svg" class="h-5 md:h-6 object-contain"/>
 <span>Whatsapp</span>
 </a>
 <!-- Call Buton -->
-<a href="tel:4448016" target="_blank" class="bg-[#DC001E] fixed left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-sm px-3">
-<img src="/assets/icons/social/phone.svg" class="h-6 object-contain"/>
+<a href="tel:4448016" target="_blank" class="bg-[#DC001E] fixed left-28 md:left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
+<img src="/assets/icons/social/phone.svg" class="h-5 md:h-6 object-contain"/>
 
 <span>Hemen Ara</span>
 </a>
 
 
+<header class="">
 
 <!-- Form  -->
 <div class="lg:hidden fixed top-1/2 -right-[285px] transform -translate-y-1/2 z-[9999] transition-all duration-500 ease-in-out" id="formContainer">
@@ -160,10 +160,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 <!-- Form  -->
 
 
-    <!-- Header -->
-    <header>
 
-    <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
+  <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
     <!-- Logo -->
     <a href="#home" class="logo flex items-center gap-2">
       <div class="bg-white rounded-full px-1 py-2">
@@ -215,10 +213,10 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
      
     </div> <div class="flex justify-between p-4 bg-[#F4F4F4]">
     <a href="tel:4448016" target="_blank">
-  <img src="/assets/icons/numara-header_1.svg" alt="" class="h-6 object-contain">
+  <img src="/assets/icons/numara-header_1.svg" alt="" class="h-5 object-contain">
 </a>
 
-        <img src="/assets/icons/header-40yil.svg" alt="" class="h-6 object-contain">
+        <img src="/assets/icons/header-40yil.svg" alt="" class="h-5 object-contain">
 
   
     
@@ -242,8 +240,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <!-- Sol: Logo ve Tanım -->
         <div class="w-full md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
           <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-16 md:h-24 object-contain">
-          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-6 md:h-8 object-contain">
-          <p class="text-[#FEFEFE] mt-3 text-center text-sm px-2 md:px-0 ">
+          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-5 md:h-8 object-contain">
+          <p class="text-[#FEFEFE] mt-3 text-center text-xs md:text-sm px-2 md:px-0 ">
             Eşitlik, hoşgörü, adalet ve toplum değerlerimiz, eğitim misyonumuza derinden etki eden faktörler olmuştur.
           </p>
         </div>
@@ -254,7 +252,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
          <div class="flex justify-center gap-24 md:gap-0 w-full  md:justify-between md:w-1/3">
         <div class="md:w-1/2 ">
           <h3 class="text-md font-bold mb-2 text-[#FEFEFE]   inline-block border-b-2 border-white pb-1">Hızlı Menü</h3>
-          <ul class="space-y-2 text-[#F8F8F8] text-sm">
+          <ul class="space-y-2 text-[#F8F8F8] text-xs md:text-sm">
             <li><a href="#home" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#about" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
@@ -267,7 +265,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <!-- Eğitimlerimiz -->
         <div class="md:w-1/2">
           <h3 class="font-bold mb-2 text-[#FEFEFE] inline-block border-b-2 border-white pb-1 text-md">Eğitimlerimiz</h3>
-          <ul class="space-y-2 text-[#F8F8F8] text-sm">
+          <ul class="space-y-2 text-[#F8F8F8] text-xs md:text-sm">
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
@@ -283,12 +281,12 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     </div>
 
     <!-- Alt Kısım -->
-    <div class="py-6">
-      <div class="flex flex-col md:flex-row  flex-nowrap justify-between gap-8 ">
+    <div class="py-2 md:py-6">
+      <div class="flex flex-col md:flex-row  flex-nowrap justify-between gap-4 md:gap-8 ">
         <!-- Sol: Haber Bülteni -->
         <div class="w-full md:w-1/3 p-4">
-  <h3 class="font-bold mb-4 text-[#FEFEFE] text-lg">Haberdar Ol!</h3>
-  <p class="text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
+  <h3 class="font-bold mb-4 text-[#FEFEFE] text-md md:text-lg">Haberdar Ol!</h3>
+  <p class="text-xs md:text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
   <form class="relative w-full">
     <!-- E-posta Girişi -->
     <div class="relative">
@@ -306,11 +304,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     </div>
     <!-- Checkbox Alanları -->
     <div class="mt-4 space-y-2">
-    <label class="flex items-center text-sm text-[#FEFEFE]">
+    <label class="flex items-center text-xs md:text-sm text-[#FEFEFE]">
   <input type="checkbox" class="custom-checkbox mr-2">
   Özel bildirim ve kampanyalar almak istiyorum.
 </label>
-<label class="flex items-center text-sm text-[#FEFEFE]">
+<label class="flex items-center text-xs md:text-sm text-[#FEFEFE]">
   <input type="checkbox" class="custom-checkbox mr-2">
   Gizlilik politikalarını kabul ediyorum.
 </label>
@@ -322,8 +320,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <!-- Orta: Sosyal Medya -->
         <div class="w-full md:w-1/3 flex px-4 md:px-0 md:ms-8">
           <div>
-          <h3 class="font-bold mb-4 text-[#FEFEFE] text-lg">Bizi Takip Edin!</h3>
-          <p class="text-[#FEFEFE] text-sm">Güncel sosyal medya ve dijital platformlarımızdan kampanya, etkinlik ve satışlarımız içni takipte kal.
+          <h3 class="font-bold mb-4 text-[#FEFEFE] text-md md:text-lg">Bizi Takip Edin!</h3>
+          <p class="text-[#FEFEFE] text-xs md:text-sm">Güncel sosyal medya ve dijital platformlarımızdan kampanya, etkinlik ve satışlarımız içni takipte kal.
 
 </p>
           <ul class="flex gap-1 mt-4 mb-4 ">
@@ -351,7 +349,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       
     </a>
 
-      <p class="text-sm">Çağrı merkezimiz üzerinden müşteri temsilcilerimiz ile sorunlarınıza 7/24 destek ile yanınızdayız.</p>
+      <p class="text-xs md:text-sm">Çağrı merkezimiz üzerinden müşteri temsilcilerimiz ile sorunlarınıza 7/24 destek ile yanınızdayız.</p>
 
         </div>
       </div>

@@ -2,9 +2,9 @@
 
 
 
-<section id="blog" class="bg-[#F3F3F3] pb-8 ">
+<section id="blog" class="bg-[#F3F3F3] pb-6 md:pb-8">
 <div class="container mx-auto bg-[#F9F9F9]">
-<div class="flex  p-4 gap-4 md:gap-8 md:p-8">
+<div class="flex  p-4 gap-4 gap-4 md:gap-8 md:p-8">
   <!-- Blog  SOL  -->
 <div class="py-6 px-2 sm:px-4 space-y-3 md:w-1/4 border-r-2 border-r-[#FF5F01]">
 <div class="logo flex flex-col lg:flex-row items-center gap-2">
