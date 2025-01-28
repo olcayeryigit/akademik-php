@@ -1,8 +1,21 @@
+
+
+
+
+
+
+
+
+
+
 <section id="about" class="pt-2 animate-bg-color">
-    <div  class="bg-[#FDFBFC]  py-10 px-4">
+<?php if (!empty($about)): ?>
+
+    <div  class="bg-[#FDFBFC] py-4 md:py-10 px-4">
+
 <div class="container mx-auto ">
     <h1 class="text-4xl font-bold mb-3">KURUMSAL</h1>
-    <p class="">Eşitlik, hoşgörü, adalet ve toplum değerlerimiz, eğitim misyonumuza derinden etki eden faktörler olmuştur.</p>
+    <p><?= esc($about[0]['mainparagraph']); ?></p> <!-- İlk paragrafı göster -->
 
  <div class="flex flex-col md:flex-row mt-4 md:mt-12">
 
@@ -12,13 +25,13 @@
 <img src="/assets/images/misyon.png" class="w-40 md:w-60 object-contain"/>
 <div>
 <h1 class="text-2xl font-bold mb-3 ">Misyonumuz</h1>
-<p class="hidden md:block">
-    Türkiye'nin önde gelen uluslararası eğitim kurumlarından biri olarak, öğrencilerimizi bilim, teknoloji, sanat ve sporda öncü, yenilikçi düşünebilen, global vizyona sahip bireyler olarak yetiştirmek ve eğitimde mükemmelliği temsil eden bir okul olmaktır. Geleneksel değerlerimizi çağdaş eğitim anlayışıyla birleştirerek, dünya vatandaşı olma bilincine sahip, kültürel farklılıklara saygılı ve yaşam boyu öğrenmeyi ilke edinmiş nesiller yetiştirmeyi hedefliyoruz.
-  </p>
+
+<p class="hidden md:block"><?= esc($about[0]['mission']); ?></p> <!-- Mission paragrafını göster -->
+
 <div class="relative overflow-hidden md:hidden">
-  <p id="misyonContent" class="line-clamp-3 text-sm transition-all duration-300">
-    Türkiye'nin önde gelen uluslararası eğitim kurumlarından biri olarak, öğrencilerimizi bilim, teknoloji, sanat ve sporda öncü, yenilikçi düşünebilen, global vizyona sahip bireyler olarak yetiştirmek ve eğitimde mükemmelliği temsil eden bir okul olmaktır. Geleneksel değerlerimizi çağdaş eğitim anlayışıyla birleştirerek, dünya vatandaşı olma bilincine sahip, kültürel farklılıklara saygılı ve yaşam boyu öğrenmeyi ilke edinmiş nesiller yetiştirmeyi hedefliyoruz.
-  </p>
+  
+<p id="misyonContent" class="line-clamp-3 text-sm transition-all duration-300"><?= esc($about[0]['mission']); ?></p> <!-- Mission paragrafını göster -->
+
   <button id="misyonButton" class="mt-2 text-[#0d0d0d] font-medium  text-sm flex items-center gap-1  ">
 
     <span id="misyonButtonText text-[#001F55]">Daha Fazla Gör</span>
@@ -39,13 +52,15 @@
 <img src="/assets/images/vizyon.png" class="w-40 md:w-60 object-contain"/>
 <div>
 <h1 class="text-2xl font-bold mb-3">Vizyonumuz</h1>
-<p class="hidden md:block">
-    Bursa Akademik Koleji International School Ortaokulu olarak, öğrencilerimizi çağın gerektirdiği akademik ve sosyal becerilerle donatırken, STEAM odaklı eğitim modelimiz ve yenilikçi öğretim yaklaşımlarımızla geleceğin liderlerini yetiştiriyoruz. Uluslararası standartlardaki eğitim programımız ve deneyimli kadromuzla, öğrencilerimizin hem ulusal sınavlarda başarılı olmalarını hem de global dünyaya hazır bireyler olmalarını sağlıyoruz.
-  </p>
+
+
+
+<p class="hidden md:block"><?= esc($about[0]['vision']); ?></p> <!-- Vision paragrafını göster 
+    -->
 <div class="relative overflow-hidden md:hidden">
-  <p id="vizyonContent" class="line-clamp-3 text-sm transition-all duration-300">
-    Bursa Akademik Koleji International School Ortaokulu olarak, öğrencilerimizi çağın gerektirdiği akademik ve sosyal becerilerle donatırken, STEAM odaklı eğitim modelimiz ve yenilikçi öğretim yaklaşımlarımızla geleceğin liderlerini yetiştiriyoruz. Uluslararası standartlardaki eğitim programımız ve deneyimli kadromuzla, öğrencilerimizin hem ulusal sınavlarda başarılı olmalarını hem de global dünyaya hazır bireyler olmalarını sağlıyoruz.
-  </p>
+ 
+<p id="vizyonContent" class="line-clamp-3 text-sm transition-all duration-300"><?= esc($about[0]['vision']); ?></p> <!-- Vision paragrafını göster -->
+
   <button id="vizyonButton" class="mt-2 text-[#0d0d0d] font-medium  text-sm flex items-center gap-1  ">
     <span id="vizyonButtonText text-[#001F55]">Daha Fazla Gör</span>
 
@@ -64,13 +79,17 @@
 </div>
 
 
-<p class="mt-8 hidden md:block" >Akademik Koleji, akademik anlamda gelişmiş bireyler yetiştirmenin yanı sıra, gerçeği ve adaleti takip etmeye ve programlarının her alanında eşitliği benimsemeye kendini adamış, saygıya dayalı bir topluluk oluşturmaya çalışmaktadır. Her öğrenciye etkin bir şekilde hitap edebilmek, zihinsel, sosyal ve ruhsal gelişimlerini zihin ve kalp alışkanlıkları yoluyla beslemektir.</p>
 
 
+<p class="mt-8 hidden md:block"  ><?= esc($about[0]['paragraph2']); ?></p> 
 
-<p class="mt-4 hidden md:block">Akademik Koleji, öğrencileri, doğrularını söylemeye ve varsayımları sorgulamaya, empati ve şefkat göstermeye ve çevrelerindeki dünya hakkında kalıcı bir merak ve bağlılık geliştirmeye teşvik eder. Donanımlı müfredatımız, nitelikli öğretmenlerimiz ve geniş imkanları barındıran büyük eğitim kampüsümüzle Akademik Koleji olarak, çocuklarımızın geleceklerini şekillendirmede ebeveynlerimizin en büyük yardımcıları oluyoruz.</p>
+<p class="mt-4 hidden md:block"><?= esc($about[0]['paragraph3']); ?></p> 
+
+
 </div>
 
 
 </div>
+<?php endif; ?>
+
 </section>

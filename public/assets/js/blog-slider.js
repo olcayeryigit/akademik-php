@@ -5,7 +5,11 @@ const Blog2Swiper = new Swiper('.blog-swiper-container', {
   },
   loop: true, // Slaytlar döngüsel
   slidesPerView: 1, // Küçük ekranlarda 1 slayt gösterilecek
-  spaceBetween: 10, // Slaytlar arasındaki boşluk
+  spaceBetween: 10, // Slaytlar arasındaki boşluk,
+  autoplay: {
+    delay: 3000, // Her slayt arasında 3 saniye gecikme
+    disableOnInteraction: false, // Kullanıcı etkileşimi sonrası otomatik geçiş durmaz
+  },
   breakpoints: {
     480: {
       slidesPerView: 2, // Çok küçük ekranlarda 2 slayt gösterilecek

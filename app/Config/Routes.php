@@ -27,3 +27,7 @@ $routes->post('/announcement/store', 'AnnouncementController::store');
 $routes->get('/announcement/edit/(:num)', 'AnnouncementController::edit/$1');
 $routes->post('/announcement/update', 'AnnouncementController::update');
 $routes->get('/announcement/delete/(:num)', 'AnnouncementController::delete/$1');  
+//about
+$routes->get('/about', 'AboutController::index'); 
+$routes->get('/about/edit/(:num)', 'About::edit/$1');
+$routes->post('/about/update', 'AboutController::update');

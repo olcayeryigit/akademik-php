@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\BlogModel; 
 use App\Models\AnnouncementModel; 
-
+use App\Models\AboutModel;
 
 class PageController extends BaseController
 {
@@ -13,12 +13,14 @@ class PageController extends BaseController
   // BlogModel sınıfını yükle
 protected $blogModel;
 protected $announcementModel;
+protected $aboutModel;
 
 public function __construct()
 {
     // BlogModel sınıfını başlat
     $this->blogModel = new BlogModel();
     $this->announcementModel = new AnnouncementModel();
+    $this->aboutModel=new AboutModel();
 }
 
 
@@ -28,9 +30,10 @@ public function home()
     // Blog verisini al
     $blogs = $this->blogModel->findAll();
     $announcements = $this->announcementModel->findAll();  // Değişken ismini burada doğru kullanıyoruz
+    $about=$this->aboutModel->findAll();
 
     // View'a gönder
-    return view('home', ['blogs' => $blogs, 'announcements' => $announcements]);  // Burada da doğru değişken adı kullanılıyor
+    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about]);  // Burada da doğru değişken adı kullanılıyor
 }
 
 

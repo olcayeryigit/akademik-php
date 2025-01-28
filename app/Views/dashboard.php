@@ -4,6 +4,7 @@
 
 <?= $this->include('dashboard/blog') ?> 
 <?= $this->include('dashboard/announcement') ?> 
+<?= $this->include('dashboard/about') ?> 
 
 
 <?= $this->endSection() ?>
