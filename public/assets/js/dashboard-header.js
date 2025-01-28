@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
           duyuruContainer.style.display = "none"; // Görünür yap
       } 
 
+      
   });
 
 
