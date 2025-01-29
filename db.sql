@@ -41,6 +41,35 @@ mission TEXT,
  paragraph3 TEXT
 );
 
+
+CREATE TABLE mainContent (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mainImage JSON,     -- mainImage'yi JSON olarak saklayacağız
+    image2 VARCHAR(255)
+
+);
+
+
+
+
+
+CREATE TABLE imageSection(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+     title VARCHAR(255) NOT NULL,
+    image VARCHAR(255),
+    mobileImage VARCHAR(255)
+
+);
+
+
+CREATE TABLE educationLinks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    links JSON NOT NULL
+);
+
+
+
+
 INSERT INTO about (mainparagraph, mission, vision, paragraph2, paragraph3)
 VALUES
 (
@@ -50,3 +79,14 @@ VALUES
   'This is the second paragraph with additional information about our company.',
   'The third paragraph focuses on our commitment to sustainability and community involvement.'
 );
+
+
+INSERT INTO mainContent (mainImage, image2) 
+VALUES ('["/assets/images/slider-1.jpg", "/assets/images/slider-2.jpg"]', '/assets/images/duyuru-kart.jpg');
+
+INSERT INTO imageSection (title,image,mobileImage) 
+VALUES (  'title','/assets/images/duyuru-kart.jpg','/assets/images/slider-1.jpg');
+
+
+INSERT INTO educationLinks (links) 
+VALUES ('["Link1", "Link2", "Link3"]');

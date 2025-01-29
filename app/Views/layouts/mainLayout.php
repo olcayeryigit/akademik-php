@@ -227,19 +227,19 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <?= $this->renderSection('content') ?>
     </main>
 
-    <footer class="relative bg-[url('/assets/images/footer-bg.jpg')] bg-cover bg-center py-4">
+    <footer class="relative bg-[url('/assets/images/footer-bg.jpg')] bg-cover bg-center py-2">
   <!-- Arka Plan Katmanı -->
   <div class="absolute inset-0 w-full h-full bg-[#010F1F]/90 z-0"></div>
 
   <!-- İçerik -->
   <div class="relative container mx-auto z-50">
     <!-- Üst Kısım -->
-    <div class="border-b border-gray-300 py-6 ">
+    <div class="border-b border-gray-300 py-4 ">
       <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-12">
         <!-- Sol: Logo ve Tanım -->
         <div class="w-full md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
-          <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-16 md:h-24 object-contain">
-          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-5 md:h-8 object-contain">
+          <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-16  object-contain">
+          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-5  object-contain">
           <p class="text-[#FEFEFE] mt-3 text-center text-xs md:text-sm px-2 md:px-0 ">
             Eşitlik, hoşgörü, adalet ve toplum değerlerimiz, eğitim misyonumuza derinden etki eden faktörler olmuştur.
           </p>
@@ -278,10 +278,10 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     </div>
 
     <!-- Alt Kısım -->
-    <div class="py-2 md:py-6">
+    <div class="py-2 md:py-4">
       <div class="flex flex-col md:flex-row  flex-nowrap justify-between gap-4 md:gap-8 ">
         <!-- Sol: Haber Bülteni -->
-        <div class="w-full md:w-1/3 p-4">
+        <div class="w-full md:w-1/3 px-4">
   <h3 class="font-bold mb-4 text-[#FEFEFE] text-md md:text-lg">Haberdar Ol!</h3>
   <p class="text-xs md:text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
   <form class="relative w-full">
@@ -355,7 +355,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     
 
 
-    <div class="flex flex-col gap-2 md:gap-0 md:flex-row   md:justify-between text-white text-xs md:text-sm px-4 mt-4">
+    <div class="flex flex-col gap-2 md:gap-0 md:flex-row   md:justify-between text-white text-xs md:text-sm px-4 mt-8">
   <div class="text-center md:text-start">
     <p class="">developed by the <span class="font-bold">thefabrika </span>creative agency</p>
   </div> 

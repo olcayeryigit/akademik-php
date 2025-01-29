@@ -10,7 +10,7 @@ public function index(){
     return view('about/index',['about'=>$about]);
 }
 
-
+//form
 public function edit($id){
     $model=new AboutModel();
     $about=$model->getAboutParagraphById($id);
@@ -19,28 +19,29 @@ public function edit($id){
 
 
 
+public function update() {
+    // Formdan gelen verileri alıyoruz
+    $id = $this->request->getPost('id');
+    $mainparagraph = $this->request->getPost('mainparagraph');
+    $mission = $this->request->getPost('mission');
+    $vision = $this->request->getPost('vision');
+    $paragraph2 = $this->request->getPost('paragraph2');
+    $paragraph3 = $this->request->getPost('paragraph3');
 
-public function update(){
-    $id=$this->request->getPost('id');
-    $mainparagraph=$this->request->getPost('mainparagraph');
-    $mission=$this->request->getPost('mission');
-    $vision=$this->request->getPost('vision');
-    $paragraph2=$this->request->getPost('paragraph2');
-    $paragraph2=$this->request->getPost('paragraph3');
+    // AboutModel üzerinden güncelleme işlemi yapıyoruz
+    $model = new AboutModel();
+    $model->update($id, [
+        'mainparagraph' => $mainparagraph,
+        'mission' => $mission,
+        'vision' => $vision,
+        'paragraph2' => $paragraph2,
+        'paragraph3' => $paragraph3,
+    ]);
 
-$model=new AboutModel();
-$model->update($id,
-[
-    'mainparagraph'=>$mainparagraph,
-    'mission'=>$mission,
-    'vision'=>$vision,
-    'paragraph1'=>$paragraph1,
-    'paragraph2'=>$paragraph2
-]);
-
-return redirect()->to('/dashboard');
-
+    // İşlem başarılıysa dashboard'a yönlendiriyoruz
+    return redirect()->to('/dashboard');
 }
+
 
 
 

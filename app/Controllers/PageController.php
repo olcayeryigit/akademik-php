@@ -6,6 +6,9 @@ use App\Models\UserModel;
 use App\Models\BlogModel; 
 use App\Models\AnnouncementModel; 
 use App\Models\AboutModel;
+use App\Models\MainContentModel;
+use App\Models\ImageSectionModel;
+use App\Models\EducationLinksModel;
 
 class PageController extends BaseController
 {
@@ -14,13 +17,18 @@ class PageController extends BaseController
 protected $blogModel;
 protected $announcementModel;
 protected $aboutModel;
-
+protected $mainContentModel;
+protected $imageSectionModel;
+protected $educationLinksModel;
 public function __construct()
 {
     // BlogModel sınıfını başlat
     $this->blogModel = new BlogModel();
     $this->announcementModel = new AnnouncementModel();
     $this->aboutModel=new AboutModel();
+    $this->mainContentModel=new MainContentModel();
+    $this->imageSectionModel=new ImageSectionModel();
+    $this->educationLinks=new EducationLinksModel();
 }
 
 
@@ -31,9 +39,12 @@ public function home()
     $blogs = $this->blogModel->findAll();
     $announcements = $this->announcementModel->findAll();  // Değişken ismini burada doğru kullanıyoruz
     $about=$this->aboutModel->findAll();
+    $mainContent=$this->mainContentModel->findAll();
+    $imageSection = $this->imageSectionModel->findAll();
+    $educationLinks=$this->educationLinksModel->findAll();
 
     // View'a gönder
-    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about]);  // Burada da doğru değişken adı kullanılıyor
+    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about,'mainContent'=>$mainContent,'imageSection'=>$imageSection, 'educationLinks'=>$educationLinks]);  // Burada da doğru değişken adı kullanılıyor
 }
 
 
@@ -93,16 +104,37 @@ public function home()
         // BlogModel'i çağırarak blog verilerini alın
         $blogModel = new BlogModel();
         $blogs = $blogModel->getBlogs();
+      
     
         // AnnouncementModel'i çağırarak duyuru verilerini alın
         $announcementModel = new AnnouncementModel();
         $announcements = $announcementModel->getAnnouncements();
     
+        //AboutModeli çağır
+        $aboutModel=new AboutModel();
+        $about=$aboutModel->getAboutParagraphById(1);
+
+
+$mainContentModel=new MainContentModel();
+$mainContent=$mainContentModel->getMainContentById(1);
+
+
+$imageSectionModel=new ImageSectionModel();
+$imageSection=$imageSectionModel->getImageSectionById(1);
+
+
+$educationLinksModel=new EducationLinksModel();
+$educationLinks=$educationLinksModel->getEducationLinkById(1);
+
         // View'e $blogs ve $announcements verilerini gönderin
         return view('dashboard', [
             'title' => 'Dashboard',
             'blogs' => $blogs,
-            'announcements' => $announcements
+            'announcements' => $announcements,
+            'about'=>$about,
+            'mainContent'=>$mainContent,
+            'imageSection'=>$imageSection,
+            'educationLinks'=>$educationLinks
         ]);
     }
     
@@ -140,6 +172,62 @@ $announcements=$announcementModel->getAnnouncements();
         return view('dashboard',['title'=>'Dashboard','announcements'=>$announcements]);
 
     }
+
+
+
+    public function dashboardAbout(){
+        if(!session()->get('isLoggedIn')){
+            return redirect()->to('/login');
+        }
+
+        $aboutModel=new AboutModel();
+        $about=$aboutModel->getAboutParagraphById(1);
+
+        return view('dashboard',['title'=>'Dashboard','about'=>$about]);
+    }
+
+
+public function dashboardMainContent(){
+    if(!session()->get('isLoggedIn')){
+        return redirect()->to('/login');
+    }
+
+    $mainContentModel=new MainContentModel();
+    $mainContent=$mainContentModel->getMainContentById(1);
+
+    return view('dashboard',['title'=>'Dashboard','mainContent'=>$mainContent]);
+}
+
+
+
+public function dashboardImageSection(){
+    if(!session()->get('isLoggedIn')){
+        return redirect()->to('/login');
+    }
+
+
+    $imageSectionModel=new ImageSectionModel();
+    $imageSection=$imageSectionModel->getImageSectionById(1);
+
+    return view('dashboard',['title'=>'Dashboard','imageSection'=>$imageSection]);
+}
+
+
+public function dashboardEducationLinks(){
+    if(!session()->get('isLoggedIn')){
+        return redirect()->to('/login');
+    }
+
+ $educationLinksModel=new EducationLinksModel();
+ $educationLinks=$educationLinksModel->getEducationLinkById(1);
+
+ return view('dashboard', ['title'=>'Dashboard','educationLinks'=>$educationLinks]);
+
+
+}
+
+
+
 
    
 }

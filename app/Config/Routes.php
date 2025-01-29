@@ -29,5 +29,13 @@ $routes->post('/announcement/update', 'AnnouncementController::update');
 $routes->get('/announcement/delete/(:num)', 'AnnouncementController::delete/$1');  
 //about
 $routes->get('/about', 'AboutController::index'); 
-$routes->get('/about/edit/(:num)', 'About::edit/$1');
+$routes->get('/about/edit/(:num)', 'AboutController::edit/$1');
 $routes->post('/about/update', 'AboutController::update');
+//mainContent
+$routes->get('/mainContent', 'MainContentController::index'); 
+$routes->get('/mainContent/edit/(:num)', 'MainContentController::edit/$1');
+$routes->post('/mainContent/update','MainContentController::update');
+//imageSection
+$routes->get('/imageSection', 'ImageSectionController::index'); 
+$routes->get('/imageSection/edit/(:num)', 'ImageSectionController::edit/$1');
+$routes->post('/imageSection/update','ImageSectionController::update');

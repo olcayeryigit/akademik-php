@@ -45,6 +45,12 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
                         <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="aboutLink">
                            About
                         </button>  
+                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="mainContentLink">
+                           Ana İçerik
+                        </button>  
+                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="imageSectionLink">
+                           Resim Bölümü
+                        </button>  
         </div>
       </div>
 
