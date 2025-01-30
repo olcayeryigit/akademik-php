@@ -8,7 +8,7 @@ use App\Models\AnnouncementModel;
 use App\Models\AboutModel;
 use App\Models\MainContentModel;
 use App\Models\ImageSectionModel;
-use App\Models\EducationLinksModel;
+use App\Models\TestimonalsModel;
 
 class PageController extends BaseController
 {
@@ -19,7 +19,8 @@ protected $announcementModel;
 protected $aboutModel;
 protected $mainContentModel;
 protected $imageSectionModel;
-protected $educationLinksModel;
+protected $testimonalsModel;
+
 public function __construct()
 {
     // BlogModel sınıfını başlat
@@ -28,7 +29,7 @@ public function __construct()
     $this->aboutModel=new AboutModel();
     $this->mainContentModel=new MainContentModel();
     $this->imageSectionModel=new ImageSectionModel();
-    $this->educationLinksModel=new EducationLinksModel();
+    $this->testimonalsModel=new TestimonalsModel();
 
 
 
@@ -45,18 +46,14 @@ public function home()
     $about=$this->aboutModel->findAll();
     $mainContent=$this->mainContentModel->findAll();
     $imageSection = $this->imageSectionModel->findAll();
-    $educationLinks=$this->educationLinksModel->findAll();
+    $testimonals = $this->testimonalsModel->findAll();
 
-      // JSON formatındaki links verisini decode et
-      foreach ($educationLinks as &$link) {
-        $link['links'] = json_decode($link['links'], true);
-    }
-    unset($link);
+    
 
 
 
     // View'a gönder
-    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about,'mainContent'=>$mainContent,'imageSection'=>$imageSection, 'educationLinks'=>$educationLinks]);  // Burada da doğru değişken adı kullanılıyor
+    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about,'mainContent'=>$mainContent,'imageSection'=>$imageSection,'testimonals'=>$testimonals]);  // Burada da doğru değişken adı kullanılıyor
 }
 
 
@@ -134,9 +131,9 @@ $mainContent=$mainContentModel->getMainContentById(1);
 $imageSectionModel=new ImageSectionModel();
 $imageSection=$imageSectionModel->getImageSectionById(1);
 
-
-$educationLinksModel=new EducationLinksModel();
-$educationLinks=$educationLinksModel->getEducationLinkById(1);
+$testimonalsModel=new TestimonalsModel();
+// PageController içinde, doğru çağrıyı yapın:
+$testimonals = $this->testimonalsModel->getTestimonals();
 
         // View'e $blogs ve $announcements verilerini gönderin
         return view('dashboard', [
@@ -146,7 +143,7 @@ $educationLinks=$educationLinksModel->getEducationLinkById(1);
             'about'=>$about,
             'mainContent'=>$mainContent,
             'imageSection'=>$imageSection,
-            'educationLinks'=>$educationLinks
+            'testimonals'=>$testimonals
         ]);
     }
     
@@ -225,19 +222,19 @@ public function dashboardImageSection(){
 }
 
 
-public function dashboardEducationLinks(){
+
+public function dashboardTestimonals(){
     if(!session()->get('isLoggedIn')){
         return redirect()->to('/login');
     }
 
- $educationLinksModel=new EducationLinksModel();
- $educationLinks=$educationLinksModel->getEducationLinkById(1);
 
- return view('dashboard', ['title'=>'Dashboard','educationLinks'=>$educationLinks]);
+    $testimonalsModel=new TestimonalsModel();
+// PageController içinde, doğru çağrıyı yapın:
+$testimonals = $this->testimonalsModel->getTestimonals();
 
-
+    return view('dashboard',['title'=>'Dashboard','testimonals'=>$testimonals]);
 }
-
 
 
 

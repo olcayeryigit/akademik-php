@@ -2,93 +2,108 @@
 
 namespace App\Controllers;
 use App\Models\AnnouncementModel;
-class AnnouncementController extends BaseController{
 
-    //Duyuruları Listeleme
-    public function index(){
-$model=new AnnouncementModel();
-$announcements=$model->getAnnouncements();
-return view('announcement/index',['announcements'=>$announcements]);
+class AnnouncementController extends BaseController {
+
+    // Duyuruları Listeleme
+    public function index() {
+        $model = new AnnouncementModel();
+        $announcements = $model->getAnnouncements();
+        return view('announcement/index', ['announcements' => $announcements]);
     }
 
+    // Duyuru Silme
+    public function delete($id) {
+        $model = new AnnouncementModel();
+        $model->deleteAnnouncement($id);
 
-
-    // Duyuru silme işlemi
-public function delete($id){
-    $model=new AnnouncementModel();
-    $model->deleteAnnouncement($id);
-
-    session()->setFlashdata('success','Duyuru başarıyla silindi');
-    return redirect()->to('/dashboard');
-}
-
-    // Duyuru oluşturma formunu gösterir
-public function create(){
-    return('announcement/create');
-}
-
-
-    // Duyuru verilerini kaydeder
-public function store(){
-    $title=$this->request->getPost('title');
-    $description=$this->request->getPost('description');
-
-
-    if(empty($title)){
-        session()->setFlashdata('error','Başlık alanı boş olamaz!');
-        return redirect()->back()->withInput();
+        session()->setFlashdata('success', 'Duyuru başarıyla silindi');
+        return redirect()->to('/dashboard');
     }
 
-    $image=$this->request->getFile('image');
-    $imagePath='';
-    if ($image && $image->isValid() && !$image->hasMoved()) {
-        $imagePath = 'assets/uploads/' . $image->getName();
-        $image->move(FCPATH . 'assets/uploads', $image->getName());
+    // Duyuru Oluşturma Formu
+    public function create() {
+        return view('announcement/create');
     }
 
-    $model=new AnnouncementModel();
-    $model->save([
-        'title'=>$title,
-        'description'=>$description,
-        'image'=>$imagePath,
-        'created_at'=>date('Y-m-d H:i:s')
-    ]);
-    return redirect()->to('/');
+    // Duyuru Kaydetme
+    public function store() {
+        $title = $this->request->getPost('title');
+        $slug = $this->request->getPost('slug');
+        $description = $this->request->getPost('description');
 
+        // Eğer slug boşsa, başlıktan slug oluştur
+        if (empty($slug)) {
+            $slug = mb_url_title($title, '-', true);
+        }
 
-}
+        if (empty($title)) {
+            session()->setFlashdata('error', 'Başlık alanı boş olamaz!');
+            return redirect()->back()->withInput();
+        }
 
+        $image = $this->request->getFile('image');
+        $imagePath = '';
 
+        if ($image && $image->isValid() && !$image->hasMoved()) {
+            $ext = $image->getExtension(); // Dosyanın uzantısını al
+            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
+            $imagePath = 'assets/uploads/' . $safeFileName;
+            $image->move(FCPATH . 'assets/uploads', $safeFileName);
+        }
 
-    //Duyuru güncelleme formunu gösterir
-public function edit($id){
-    $model=new AnnouncementModel();
-    $announcement=$model->getAnnouncement($id);
-    return view('announcement/edit',['announcement'=>$announcement]);
+        $model = new AnnouncementModel();
+        $model->save([
+            'title'       => $title,
+            'slug'        => mb_url_title($slug, '-', true),
+            'description' => $description,
+            'image'       => $imagePath,
+            'created_at'  => date('Y-m-d H:i:s')
+        ]);
 
-}
+        return redirect()->to('/');
+    }
 
-    // Duyuru güncelleme işlemi
-    public function update(){
-$id=$this->request->getPost('id');
-$title=$this->request->getPost('title');
-$description=$this->request->getPost('description');
-$image=$this->request->getFile('image');
-        // Yeni resim varsa mevcut resmin üzerine yazılır
-$imagePath='';
-$imagePath = '';
-if ($image && $image->isValid() && !$image->hasMoved()) {
-    $imagePath = 'assets/uploads/' . $image->getName();
-    $image->move(FCPATH. 'assets/uploads', $image->getName());
-}
-$model=new AnnouncementModel();
-$model->update($id,[
-    'title'=>$title,
-    'description'=>$description,
-    'image'=>$imagePath
-]);
+    // Duyuru Güncelleme Formu
+    public function edit($id) {
+        $model = new AnnouncementModel();
+        $announcement = $model->getAnnouncement($id);
+        return view('announcement/edit', ['announcement' => $announcement]);
+    }
 
-return redirect()->to('/dashboard');
-    
+    // Duyuru Güncelleme
+    public function update() {
+        $id = $this->request->getPost('id');
+        $title = $this->request->getPost('title');
+        $slug = $this->request->getPost('slug');
+        $description = $this->request->getPost('description');
+        $image = $this->request->getFile('image');
+
+        // Eğer slug boşsa, başlıktan slug oluştur
+        if (empty($slug)) {
+            $slug = mb_url_title($title, '-', true);
+        } else {
+            // Kullanıcı tarafından girilen slug da güvenli hale getiriliyor
+            $slug = mb_url_title($slug, '-', true);
+        }
+
+        $imagePath = '';
+
+        if ($image && $image->isValid() && !$image->hasMoved()) {
+            $ext = $image->getExtension(); // Dosyanın uzantısını al
+            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
+            $imagePath = 'assets/uploads/' . $safeFileName;
+            $image->move(FCPATH . 'assets/uploads', $safeFileName);
+        }
+
+        $model = new AnnouncementModel();
+        $model->update($id, [
+            'title'       => $title,
+            'slug'        => $slug,
+            'description' => $description,
+            'image'       => $imagePath
+        ]);
+
+        return redirect()->to('/dashboard');
     }
 }

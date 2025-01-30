@@ -38,9 +38,8 @@
                 <p class="text-gray-600 mt-2 line-clamp-2 text-sm"><?= esc($blog['description']); ?></p>
             </div>
             <div class="flex justify-between items-center mt-3">
-                <a href="/blog/view/<?= $blog['id']; ?>" class="text-[11px] sm:text-xs block text-center px-2 py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-white rounded-md">Devamını Oku!</a>
+            <a href="/blog/<?= esc($blog['slug'])?>" class="text-[11px] sm:text-xs block text-center px-2 py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-white rounded-md">Devamını Oku!</a>
                 <div class="text-[10px] sm:text-xs"><?= date('d.m.Y', strtotime($blog['published_at'])); ?> </div>
-
             </div>
         </div>
     </div>

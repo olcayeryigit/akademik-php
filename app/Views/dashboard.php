@@ -7,7 +7,7 @@
 <?= $this->include('dashboard/about') ?> 
 <?= $this->include('dashboard/mainContent') ?> 
 <?= $this->include('dashboard/imageSection') ?> 
-<?= $this->include('dashboard/educationLinks') ?> 
+<?= $this->include('dashboard/testimonals') ?> 
 
 
 <?= $this->endSection() ?>

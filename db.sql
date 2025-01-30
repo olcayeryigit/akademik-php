@@ -14,6 +14,7 @@ VALUES ('olcay@hotmail.com', '123456');
 CREATE TABLE blogs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255),
     description TEXT,
     image VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -25,6 +26,7 @@ CREATE TABLE blogs (
 CREATE TABLE announcements(
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255),
   description TEXT,
   image VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -62,11 +64,11 @@ CREATE TABLE imageSection(
 );
 
 
-CREATE TABLE educationLinks (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    links JSON NOT NULL,
+CREATE TABLE testimonals(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  image VARCHAR(255)
 );
-
 
 
 
@@ -88,5 +90,5 @@ INSERT INTO imageSection (title,image,mobileImage)
 VALUES (  'title','/assets/images/duyuru-kart.jpg','/assets/images/slider-1.jpg');
 
 
-INSERT INTO educationLinks (links) 
-VALUES ('["Link1", "Link2", "Link3"]');
+INSERT INTO testimonals (title,image) 
+VALUES (  'title','/assets/images/duyuru-kart.jpg');

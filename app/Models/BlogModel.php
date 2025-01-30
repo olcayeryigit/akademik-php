@@ -8,7 +8,7 @@ class BlogModel extends Model
 {
     protected $table = 'blogs';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['title', 'description', 'image', 'created_at'];
+    protected $allowedFields = ['title', 'description','slug', 'image', 'created_at'];
 
     // Blogları getirir
     public function getBlogs()

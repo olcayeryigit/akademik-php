@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const imageSectionContainer = document.getElementById("image-section-container");
     const mainContentLink = document.getElementById("mainContentLink");
     const mainContentContainer = document.getElementById("main-content-container");
+    
+    // Testimonals linkine ve container'a ekleme
+    const testimonalsLink = document.getElementById("testimonalsLink");
+    const testimonalsContainer = document.getElementById("testimonals-container");
 
     // Tüm container'ları gizle
     function hideAllContainers() {
@@ -25,8 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
         aboutContainer.style.display = "none";
         imageSectionContainer.style.display = "none";
         mainContentContainer.style.display = "none"; // Yeni container'ı da gizle
+        testimonalsContainer.style.display = "none"; // Testimonals container'ını da gizle
     }
-  
+
     // Blog linkine tıklandığında çalışacak fonksiyon
     blogLink.addEventListener("click", function(event) {
         event.preventDefault(); // Linkin varsayılan davranışını engelle
@@ -35,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Blog container'ını göster
         blogContainer.style.display = "block";
     });
-  
+
     // Duyuru linkine tıklandığında çalışacak fonksiyon
     duyuruLink.addEventListener("click", function(event) {
         event.preventDefault(); // Linkin varsayılan davranışını engelle
@@ -44,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Duyuru container'ını göster
         duyuruContainer.style.display = "block";
     });
-  
+
     // About linkine tıklandığında çalışacak fonksiyon
     aboutLink.addEventListener("click", function(event) {
         event.preventDefault(); // Linkin varsayılan davranışını engelle
@@ -70,5 +75,14 @@ document.addEventListener("DOMContentLoaded", function() {
   
         // Main Content container'ını göster
         mainContentContainer.style.display = "block";
+    });
+
+    // Testimonals linkine tıklandığında çalışacak fonksiyon
+    testimonalsLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Linkin varsayılan davranışını engelle
+        hideAllContainers(); // Tüm container'ları gizle
+  
+        // Testimonals container'ını göster
+        testimonalsContainer.style.display = "block";
     });
 });

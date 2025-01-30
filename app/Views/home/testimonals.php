@@ -1,21 +1,18 @@
+
 <section id="" class="container mx-auto pt-10 pb-8 md:px-0 lg:px-12 md:py-16">
 
 <div class="testimonials-swiper-container overflow-hidden w-full relative">
   <div class="swiper-wrapper md:flex md:items-center md:justify-center md:gap-2 ">
+  <?php foreach ($testimonals as $testimonal): ?>
+
   <div class="swiper-slide flex items-center justify-center">
-    <img src="/assets/images/partners/british-council.svg" class="h-16 md:h-12 object-contain" alt="British Council" />
+    <img src="<?= base_url('' . $testimonal['image']); ?>" alt="Blog Resmi" class="h-16 md:h-12 object-contain" />
   </div>
-  <div class="swiper-slide flex items-center justify-center">
-    <img src="/assets/images/partners/global-schools-program.svg" class="h-16 md:h-12 object-contain" alt="Global Schools Program" />
-  </div>
-  <div class="swiper-slide flex items-center justify-center">
-    <img src="/assets/images/partners/language-cert.svg" class="h-16 md:h-12 object-contain" alt="Language Cert" />
-  </div>
-  <div class="swiper-slide flex items-center justify-center">
-    <img src="/assets/images/partners/pearson.svg" class="h-16 md:h-12 object-contain" alt="Pearson" />
-  </div>
+  
 </div>
+<?php endforeach; ?>
 
 </div>
 
 </section>
+

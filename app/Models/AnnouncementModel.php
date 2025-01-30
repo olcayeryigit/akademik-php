@@ -7,7 +7,7 @@ class AnnouncementModel extends Model
 {
     protected $table='announcements';
     protected $primaryKey='id';
-    protected $allowedFields=['title','description','image','created_at'];
+    protected $allowedFields=['title','slug','description','image','created_at'];
 
 
 //Duyuruları getir

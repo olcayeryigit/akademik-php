@@ -8,9 +8,12 @@
         <form action="/announcement/store" method="post" enctype="multipart/form-data">
             <div>
                 <label for="title" class="block text-sm font-medium text-gray-700">Başlık</label>
-                <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" >
             </div>
-
+            <div>
+                <label for="slug" class="block text-sm font-medium text-gray-700">URL</label>
+                <input type="text" id="slug" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" >
+            </div>
             <div>
                 <label for="description" class="block text-sm font-medium text-gray-700">Açıklama</label>
                 <textarea id="description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
@@ -42,8 +45,9 @@
                     <tr>
                         <td class="py-2 px-4 border-b"><?= $announcement['id'] ?></td>
                         <td class="py-2 px-4 border-b"><?= $announcement['title'] ?></td>
+
                         <td class="py-2 px-4 border-b">
-                            <a href="#" onclick="showUpdateForm2(<?= $announcement['id'] ?>, '<?= $announcement['title'] ?>', '<?= $announcement['description'] ?>', '<?= $announcement['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
+                            <a href="#" onclick="showUpdateForm2(<?= $announcement['id'] ?>, '<?= $announcement['title'] ?>','<?= $announcement['slug'] ?>', '<?= $announcement['description'] ?>', '<?= $announcement['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
                             <a href="/announcement/delete/<?= $announcement['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
                         </td>
                     </tr>
@@ -66,6 +70,11 @@
                 <label for="update_title2" class="block text-sm font-medium text-gray-700">Başlık</label>
                 <input type="text" id="update_title2" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
             </div>
+            <div>
+                <label for="update_slug2" class="block text-sm font-medium text-gray-700">URL</label>
+                <input type="text" id="update_slug2" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" >
+            </div>
+
 
             <div>
                 <label for="update_description2" class="block text-sm font-medium text-gray-700">Açıklama</label>
@@ -88,8 +97,9 @@
 
 <script>
     // Güncelleme formunu göster
-    function showUpdateForm2(id, title, description, image) {
+    function showUpdateForm2(id, title, slug, description, image) {
         document.getElementById('update_id2').value = id;
+        document.getElementById('update_slug2').value = slug;
         document.getElementById('update_title2').value = title;
         document.getElementById('update_description2').value = description;
         document.getElementById('update_image_preview2').src ="/"+image;

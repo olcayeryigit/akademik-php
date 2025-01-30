@@ -43,3 +43,12 @@ $routes->post('/imageSection/update','ImageSectionController::update');
 $routes->get('educationLinks','EducationLinksController::index');
 $routes->get('/educationLinks/edit/(:num)', 'EducationLinksController::edit/$1');
 $routes->post('/educationLinks/update','EducationLinksController::update');
+
+//testimonals
+$routes->get('testimonal','TestimonalsController::index');
+$routes->get('/testimonal/edit/(:num)', 'TestimonalsController::edit/$1');
+$routes->post('/testimonal/store','TestimonalsController::store');
+$routes->get('/testimonal/delete/(:num)', 'TestimonalsController::delete/$1');  // Blog silme
+
+//blog-
+$routes->get('blog/(:segment)', 'BlogController::viewBlog/$1'); 

@@ -34,6 +34,7 @@ class BlogController extends BaseController
     public function store()
     {
         $title = $this->request->getPost('title');
+        $slug = $this->request->getPost('slug');
         $description = $this->request->getPost('description');
 
         if (empty($title)) {
@@ -41,16 +42,27 @@ class BlogController extends BaseController
             return redirect()->back()->withInput();
         }
 
+        // Eğer slug boşsa, başlıktan slug oluştur
+        if (empty($slug)) {
+            $slug = mb_url_title($title, '-', true);
+        } else {
+            $slug = mb_url_title($slug, '-', true);
+        }
+
         $image = $this->request->getFile('image');
         $imagePath = '';
+
         if ($image && $image->isValid() && !$image->hasMoved()) {
-            $imagePath = 'assets/uploads/' . $image->getName();
-            $image->move(FCPATH . 'assets/uploads', $image->getName());
+            $ext = $image->getExtension();
+            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
+            $imagePath = 'assets/uploads/' . $safeFileName;
+            $image->move(FCPATH . 'assets/uploads', $safeFileName);
         }
 
         $model = new BlogModel();
         $model->save([
             'title' => $title,
+            'slug' => $slug,
             'description' => $description,
             'image' => $imagePath,
             'created_at' => date('Y-m-d H:i:s')
@@ -72,24 +84,61 @@ class BlogController extends BaseController
     {
         $id = $this->request->getPost('id');
         $title = $this->request->getPost('title');
+        $slug = $this->request->getPost('slug');
         $description = $this->request->getPost('description');
         $image = $this->request->getFile('image');
 
-        // Yeni resim varsa mevcut resmin üzerine yazılır
+        // Eğer slug boşsa, başlıktan slug oluştur
+        if (empty($slug)) {
+            $slug = mb_url_title($title, '-', true);
+        } else {
+            $slug = mb_url_title($slug, '-', true);
+        }
+
         $imagePath = '';
+
         if ($image && $image->isValid() && !$image->hasMoved()) {
-            $imagePath = 'assets/uploads/' . $image->getName();
-            $image->move(FCPATH. 'assets/uploads', $image->getName());
+            $ext = $image->getExtension();
+            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
+            $imagePath = 'assets/uploads/' . $safeFileName;
+            $image->move(FCPATH . 'assets/uploads', $safeFileName);
         }
 
         $model = new BlogModel();
         $model->update($id, [
             'title' => $title,
+            'slug' => $slug,
             'description' => $description,
             'image' => $imagePath
         ]);
 
         return redirect()->to('/dashboard');
     }
-}
 
+
+
+
+
+
+  // Blog detay sayfasını gösterir
+  public function viewBlog($slug)
+  {
+      $blogsModel = new BlogModel(); // Blog modelini çağır
+  
+      $blog = $blogsModel->where('slug', $slug)->first();
+  
+      if (!$blog) {
+          return redirect()->to('/404'); // Eğer blog bulunamazsa 404 sayfasına yönlendir
+      }
+  
+      // MainLayout için title parametresi gönder
+      return view('blog/view', [
+          'blog' => $blog,
+          'title' => $blog['title'] // Title'ı ilet
+      ]);
+  }
+  
+
+
+
+}
