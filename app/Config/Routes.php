@@ -39,3 +39,7 @@ $routes->post('/mainContent/update','MainContentController::update');
 $routes->get('/imageSection', 'ImageSectionController::index'); 
 $routes->get('/imageSection/edit/(:num)', 'ImageSectionController::edit/$1');
 $routes->post('/imageSection/update','ImageSectionController::update');
+//links
+$routes->get('educationLinks','EducationLinksController::index');
+$routes->get('/educationLinks/edit/(:num)', 'EducationLinksController::edit/$1');
+$routes->post('/educationLinks/update','EducationLinksController::update');

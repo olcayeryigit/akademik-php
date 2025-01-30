@@ -92,3 +92,4 @@ class BlogController extends BaseController
         return redirect()->to('/dashboard');
     }
 }
+

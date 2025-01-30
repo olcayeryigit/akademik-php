@@ -8,6 +8,7 @@
 <?= $this->include('home/image-section') ?> 
 <?= $this->include('home/testimonals') ?> 
 <?= $this->include('home/ielts') ?> 
+<?= $this->include('home/education-links') ?> 
 
 
 <?= $this->endSection() ?>

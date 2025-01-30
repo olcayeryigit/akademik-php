@@ -64,7 +64,7 @@ CREATE TABLE imageSection(
 
 CREATE TABLE educationLinks (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    links JSON NOT NULL
+    links JSON NOT NULL,
 );
 
 

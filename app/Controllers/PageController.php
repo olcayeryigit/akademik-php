@@ -28,7 +28,11 @@ public function __construct()
     $this->aboutModel=new AboutModel();
     $this->mainContentModel=new MainContentModel();
     $this->imageSectionModel=new ImageSectionModel();
-    $this->educationLinks=new EducationLinksModel();
+    $this->educationLinksModel=new EducationLinksModel();
+
+
+
+ 
 }
 
 
@@ -42,6 +46,14 @@ public function home()
     $mainContent=$this->mainContentModel->findAll();
     $imageSection = $this->imageSectionModel->findAll();
     $educationLinks=$this->educationLinksModel->findAll();
+
+      // JSON formatındaki links verisini decode et
+      foreach ($educationLinks as &$link) {
+        $link['links'] = json_decode($link['links'], true);
+    }
+    unset($link);
+
+
 
     // View'a gönder
     return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about,'mainContent'=>$mainContent,'imageSection'=>$imageSection, 'educationLinks'=>$educationLinks]);  // Burada da doğru değişken adı kullanılıyor

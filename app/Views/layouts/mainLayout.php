@@ -184,8 +184,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       <ul class="flex space-x-6">
       <li><a href="#home" class="hover:text-[#760E0E]">Anasayfa</a></li>
         <li><a href="#about" class="hover:text-[#760E0E]">Hakkımızda</a></li>
-        <li><a href="#" class="hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="/assets/icons/header-ok.svg" class="h-2 object-contain" /></a></li>
+        <li><a href="#" class="hover:text-[#760E0E] ">Eğitimlerimiz</a></li>
         <li><a href="#blog" class="hover:text-[#760E0E]">Blog</a></li>
+        
       </ul>
     </nav>
 
@@ -263,6 +264,8 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <!-- Eğitimlerimiz -->
         <div class="md:w-1/2">
           <h3 class="font-bold mb-2 text-[#FEFEFE] inline-block border-b-2 border-white pb-1 text-md">Eğitimlerimiz</h3>
+
+          
           <ul class="space-y-2 text-[#F8F8F8] text-xs md:text-sm">
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
@@ -270,6 +273,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
             <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
           </ul>
+
+
+
         </div>
         </div>
 
