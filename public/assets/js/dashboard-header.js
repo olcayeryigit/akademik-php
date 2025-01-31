@@ -17,10 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const imageSectionContainer = document.getElementById("image-section-container");
     const mainContentLink = document.getElementById("mainContentLink");
     const mainContentContainer = document.getElementById("main-content-container");
-    
-    // Testimonals linkine ve container'a ekleme
     const testimonalsLink = document.getElementById("testimonalsLink");
     const testimonalsContainer = document.getElementById("testimonals-container");
+
+    // Yeni eklenen webform container ve link
+    const webformLink = document.getElementById("webformLink");
+    const webformContainer = document.getElementById("webform-container");
 
     // Tüm container'ları gizle
     function hideAllContainers() {
@@ -28,61 +30,51 @@ document.addEventListener("DOMContentLoaded", function() {
         duyuruContainer.style.display = "none";
         aboutContainer.style.display = "none";
         imageSectionContainer.style.display = "none";
-        mainContentContainer.style.display = "none"; // Yeni container'ı da gizle
-        testimonalsContainer.style.display = "none"; // Testimonals container'ını da gizle
+        mainContentContainer.style.display = "none";
+        testimonalsContainer.style.display = "none";
+        webformContainer.style.display = "none"; // Webform container'ını da gizle
     }
 
-    // Blog linkine tıklandığında çalışacak fonksiyon
     blogLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // Blog container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         blogContainer.style.display = "block";
     });
 
-    // Duyuru linkine tıklandığında çalışacak fonksiyon
     duyuruLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // Duyuru container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         duyuruContainer.style.display = "block";
     });
 
-    // About linkine tıklandığında çalışacak fonksiyon
     aboutLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // About container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         aboutContainer.style.display = "block";
     });
 
-    // Image Section linkine tıklandığında çalışacak fonksiyon
     imageSectionLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // Image Section container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         imageSectionContainer.style.display = "block";
     });
 
-    // Main Content linkine tıklandığında çalışacak fonksiyon
     mainContentLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // Main Content container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         mainContentContainer.style.display = "block";
     });
 
-    // Testimonals linkine tıklandığında çalışacak fonksiyon
     testimonalsLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Linkin varsayılan davranışını engelle
-        hideAllContainers(); // Tüm container'ları gizle
-  
-        // Testimonals container'ını göster
+        event.preventDefault();
+        hideAllContainers();
         testimonalsContainer.style.display = "block";
+    });
+
+    // Webform linkine tıklandığında çalışacak fonksiyon
+    webformLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        hideAllContainers();
+        webformContainer.style.display = "block";
     });
 });

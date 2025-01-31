@@ -110,6 +110,7 @@ public function home()
         session()->destroy();
         return redirect()->to('/login');
     }
+    
 
     
 

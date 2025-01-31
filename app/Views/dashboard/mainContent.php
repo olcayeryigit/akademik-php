@@ -1,45 +1,47 @@
 <div class="main-content-container container mx-auto p-6" id="main-content-container" style="display: none;">
     <?php if (!empty($mainContent)): ?>
-        <!-- mainImage dizisini çöz ve her bir öğeyi görsel olarak göster -->
-        <div class="py-2 px-4 border-b">
-            <h3>Main Images</h3>
-            <?php
-            if (isset($mainContent['mainImage']) && is_array($mainContent['mainImage'])) {
-                foreach ($mainContent['mainImage'] as $image) {
-                    echo '<div class="image-container py-2">';
-                    echo '<img src="' . base_url($image) . '" alt="Main Image" style="max-width: 200px; max-height: 200px;"/>';
-                    echo '</div>';
+        <!-- Ana Görsellerin Gösterimi -->
+        <div class="py-4 px-6 border-b border-gray-300 mb-4">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Slider Resimleri</h3>
+            <div class="flex gap-6">
+                <?php
+                if (isset($mainContent['mainImage']) && is_array($mainContent['mainImage'])) {
+                    foreach ($mainContent['mainImage'] as $image) {
+                        echo '<div class="image-container">';
+                        echo '<img src="' . base_url($image) . '" alt="Main Image" class=" h-24 object-contain " />';
+                        echo '</div>';
+                    }
                 }
-            }
-            ?>
+                ?>
+            </div>
         </div>
 
-        <!-- image2'yi görsel olarak göster -->
-        <div class="py-2 px-4 border-b">
-            <h3>Secondary Image</h3>
-            <?= isset($mainContent['image2']) ? '<img src="' . base_url($mainContent['image2']) . '" alt="Image 2" style="max-width: 200px; max-height: 200px;" />' : '' ?>
+        <!-- Secondary Image -->
+        <div class="py-4 px-6 border-b border-gray-300 mb-4">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Küçük Resim</h3>
+            <?= isset($mainContent['image2']) ? '<img src="' . base_url($mainContent['image2']) . '" alt="Image 2" class="h-24 object-contain " />' : '' ?>
         </div>
 
-        <!-- Güncelleme formu -->
-        <form action="<?= site_url('/mainContent/update') ?>" method="post" enctype="multipart/form-data">
-            <h3>Update Main Content</h3>
+        <!-- Güncelleme Formu -->
+        <form action="<?= site_url('/mainContent/update') ?>" method="post" enctype="multipart/form-data" class="max-w-xl mx-auto">
+            <h3 class="text-2xl font-semibold text-gray-800 text-center mb-4">Güncelleme</h3>
             <input type="hidden" name="id" value="<?= $mainContent['id'] ?>">
 
-            <!-- Main Image (Yeni resim yükleme) -->
-            <div class="form-group py-2">
-                <label for="mainImage">Update Main Images:</label>
-                <input type="file" name="mainImage[]" id="mainImage" multiple class="form-control">
+            <!-- Ana Görsellerin Güncellenmesi -->
+            <div class="form-group mb-4">
+                <label for="mainImage" class="text-sm font-medium text-gray-700">Slider resimlerini güncelle:</label>
+                <input type="file" name="mainImage[]" id="mainImage" multiple class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 transition duration-200">
             </div>
 
-            <!-- image2 (Yeni resim yükleme) -->
-            <div class="form-group py-2">
-                <label for="image2">Update Secondary Image:</label>
-                <input type="file" name="image2" id="image2" class="form-control">
+            <!-- Secondary Image Güncellenmesi -->
+            <div class="form-group mb-4">
+                <label for="image2" class="text-sm font-medium text-gray-700">Küçük Resmi Güncelleme:</label>
+                <input type="file" name="image2" id="image2" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 transition duration-200">
             </div>
 
-            <!-- Submit button -->
-            <div class="form-group py-2">
-                <button type="submit" class="btn btn-primary">Update</button>
+            <!-- Güncelleme Butonu -->
+            <div class="form-group text-center">
+                <button type="submit" class="bg-[#475569] text-white px-4 py-2 rounded-md hover:bg-[#475569]/80 text-lg">Güncelle</button>
             </div>
         </form>
     <?php endif; ?>

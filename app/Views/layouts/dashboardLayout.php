@@ -19,53 +19,50 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     
 
 
+<!-- Dashboard Header -->
+<!-- Dashboard Header -->
+<header class="bg-slate-700 text-white shadow-lg ">
+  <div class="max-w-7xl mx-auto p-6 flex items-center justify-between gap-6">
+    
+    <!-- Dashboard Link -->
+    <a id="dashboardLink" href="/dashboard" class="px-4 py-2 bg-slate-600 text-white  rounded-lg shadow-md hover:bg-slate-500 transition-all duration-300 text-md">
+      Dashboard
+    </a>
 
-    <!-- Header -->
-
-  <!-- Dashboard Header -->
-  <header class="bg-blue-600 text-white">
-    <div class="max-w-7xl mx-auto p-5 flex items-center justify-around space-x-4">
-      <!-- Dashboard Link -->
-      <a href="/dashboard" class="p-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Dashboard</a>
-
-      <div class="flex gap-4 items-center">
+    <div class="flex gap-6 items-center">
       <!-- İçerik Yönetimi Dropdown -->
-      <div class="relative">
-        <button class="p-2 bg-blue-700 text-white rounded-md w-full text-left" id="dropdownButton">
+      <div class="relative group">
+        <button id="dropdownButton" class="px-5 py-2 bg-slate-600 text-white text-md rounded-lg shadow-md flex items-center justify-between min-w-[180px] hover:bg-slate-500 transition-all duration-300 ">
           İçerik Yönetimi
+          <svg class="w-5 h-5 ml-2 transition-transform group-hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
         </button>
-
-        <div id="dropdownMenu" class=" absolute hidden bg-blue-700 text-white w-full mt-2 rounded-md shadow-lg">
-        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="blogLink">
-                            Bloglar
-                        </button>   
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="announcementLink">
-                           Duyurular
-                        </button>  
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="aboutLink">
-                           About
-                        </button>  
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="mainContentLink">
-                           Ana İçerik
-                        </button>  
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="imageSectionLink">
-                           Resim Bölümü
-                        </button>  
-                        <button class="link p-2 bg-blue-700 text-white rounded-md w-full text-left" id="testimonalsLink">
-                           Testimonals
-                        </button>  
+        
+        <div id="dropdownMenu" class="absolute hidden group-hover:block bg-slate-800 text-white rounded-lg shadow-lg transition-all duration-300 transform scale-95 group-hover:scale-100 opacity-0 group-hover:opacity-100 min-w-[180px]  z-10">
+          <button id="blogLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left rounded-t-lg">Bloglar</button>   
+          <button id="announcementLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left">Duyurular</button>  
+          <button id="aboutLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left">Kurumsal</button>  
+          <button id="mainContentLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left">Ana İçerik</button>  
+          <button id="imageSectionLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left">Resim Bölümü</button>  
+          <button id="testimonalsLink" class="block px-6 py-3 hover:bg-slate-600 w-full text-left rounded-b-lg">Referanslar</button>  
         </div>
       </div>
 
       <!-- Web Formlar Linki -->
-      <a href="/web-forms" class="p-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">
-        Web Formlar
-      </a>
-      </div>
-      <!-- Çıkış Yap Linki -->
-      <a href="/login" class="p-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Çıkış Yap</a>
+      <button id="webformLink" class="px-4 py-2 bg-slate-600 text-white  rounded-lg shadow-md hover:bg-slate-500 transition-all duration-300 text-md">
+        Webform
+      </button>  
     </div>
-  </header>
+
+    <!-- Çıkış Yap Linki -->
+    <a id="logoutLink" href="/logout" class="px-4 py-2  text-white  rounded-lg shadow-md  transition-all duration-300 text-md rounded-lg shadow-md bg-red-500 hover:bg-red-600 transition-all duration-300">
+      Çıkış Yap
+    </a>
+
+  </div>
+</header>
+
 
   <?= $this->renderSection('content') ?>
 

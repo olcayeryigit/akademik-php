@@ -13,7 +13,9 @@ $routes->get('/', 'PageController::home'); // Ana sayfa
 $routes->get('/blog', 'PageController::blog'); // Blog sayfası
 $routes->get('/login', 'PageController::login'); // Giriş sayfası
 $routes->post('/login-action', 'PageController::loginAction'); // Giriş işlemi
+$routes->get('/logout', 'PageController::logout');
 $routes->get('/dashboard', 'PageController::dashboard'); // Dashboard sayfası
+
 
 //blog
 $routes->get('/blog', 'BlogController::index'); // Blog listesi

@@ -1,112 +1,148 @@
-<div class="blog-container container mx-auto p-6" id="blog-container" style="display: none;">
-    <h1 class="text-2xl font-bold mb-4">Bloglar</h1>
+<div class="blog-container container mx-auto p-4" id="blog-container" style="display: none;">
+    <h1 class="text-xl font-bold mb-6 text-gray-800">Bloglar</h1>
+
+    <!-- Blog Ekle Butonu -->
+    <div class="mb-4">
+        <button onclick="showBlogForm()" class="bg-[#475569] text-white px-4 py-2 rounded-md hover:bg-[#475569]/80 text-sm">Blog Ekle</button>
+    </div>
+
+    <!-- Blog Listesi -->
+    <table class="min-w-full bg-white border rounded-md shadow-sm">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="py-2 px-4 text-sm text-left text-gray-600">ID</th>
+                <th class="py-2 px-4 text-sm text-left text-gray-600">Başlık</th>
+                <th class="py-2 px-4 text-sm text-left text-gray-600">Durum</th>
+                <th class="py-2 px-4 text-sm text-left text-gray-600">Aksiyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($blogs)): ?>
+                <?php foreach ($blogs as $blog): ?>
+                    <tr class="border-t">
+                        <td class="py-2 px-4 text-sm text-gray-700"><?= $blog['id'] ?></td>
+                        <td class="py-2 px-4 text-sm text-gray-700"><?= $blog['title'] ?></td>
+                        <td class="py-2 px-4 text-sm text-gray-700"><?= $blog['status'] == 1 ? 'Aktif' : 'Pasif' ?></td>
+                        <td class="py-2 px-4 text-sm flex gap-8">
+                            <?php if ($blog['status'] == 1): ?>
+                                <a href="/blog/update-status/<?= $blog['id'] ?>/0" class="text-yellow-600 hover:text-yellow-800 ">Pasife Al</a>
+                            <?php else: ?>
+                                <a href="/blog/update-status/<?= $blog['id'] ?>/1" class="text-green-600 hover:text-green-800">Yayınla</a>
+                            <?php endif; ?>
+                            <a href="#" onclick="showUpdateForm(<?= $blog['id'] ?>, '<?= $blog['title'] ?>', '<?= $blog['slug'] ?>', '<?= $blog['description'] ?>', '<?= $blog['image'] ?>')" class="text-blue-600 hover:text-blue-800">Güncelle</a>
+                            <a href="/blog/delete/<?= $blog['id'] ?>" class="text-red-600 hover:text-red-800 " onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4" class="text-center py-4 text-gray-500 text-sm">Henüz blog eklenmemiş.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
 
     <!-- Blog Ekleme Formu -->
-    <div class="mb-6">
-        <h2 class="text-xl font-semibold mb-4">Yeni Blog Ekle</h2>
-        <form action="/blog/store" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="title" class="block text-sm font-medium text-gray-700">Başlık</label>
-                <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-            </div>
-            <div>
-                <label for="slug" class="block text-sm font-medium text-gray-700">URL</label>
-                <input type="text" id="slug" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" >
-            </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Açıklama</label>
-                <textarea id="description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
-            </div>
+    <div id="addBlogForm" class="my-6 p-4 border rounded-md shadow-sm bg-white hidden relative">
+<div class="flex justify-between items-center">
+    <h2 class="text-lg font-semibold mb-4 text-gray-800">Yeni Blog Ekle</h2>
+        <button onclick="closeBlogForm()" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 text-sm">Kapat</button>
 
-            <div>
-                <label for="image" class="block text-sm font-medium text-gray-700">Resim</label>
-                <input type="file" id="image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"required>
+</div>
+        
+        <form action="/blog/store" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-600">Başlık</label>
+                <input type="text" id="title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="slug" class="block text-sm font-medium text-gray-600">URL</label>
+                <input type="text" id="slug" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-600">Açıklama</label>
+                <textarea id="description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-600">Resim</label>
+                <input type="file" id="image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm" required>
             </div>
 
             <div class="flex justify-end">
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Ekle</button>
+                <button type="submit" class="bg-[#475569] hover:bg-[#475569]/80 text-white px-4 py-2 rounded-md  text-sm">Ekle</button>
             </div>
         </form>
     </div>
 
-    <!-- Blog Listesi -->
-    <table class="min-w-full bg-white border border-gray-300">
-    <thead>
-        <tr>
-            <th class="py-2 px-4 border-b">ID</th>
-            <th class="py-2 px-4 border-b">Başlık</th>
-            <th class="py-2 px-4 border-b">Durum</th>
-            <th class="py-2 px-4 border-b">Aksiyon</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php if (!empty($blogs)): ?>
-            <?php foreach ($blogs as $blog): ?>
-                <tr>
-                    <td class="py-2 px-4 border-b"><?= $blog['id'] ?></td>
-                    <td class="py-2 px-4 border-b"><?= $blog['title'] ?></td>
-                    <td class="py-2 px-4 border-b"><?= $blog['status'] == 1 ? 'Aktif' : 'Pasif' ?></td>
-
-
-
-                    <td class="py-2 px-4 border-b">
-                 
-                    <a href="/blog/update-status/<?= $blog['id'] ?>/1" class="text-green-500 hover:text-green-700 ml-4">Yayınla</a>
-<a href="/blog/update-status/<?= $blog['id'] ?>/0" class="text-yellow-500 hover:text-yellow-700 ml-4">Taslak</a>
-   <a href="#" onclick="showUpdateForm(<?= $blog['id'] ?>, '<?= $blog['title'] ?>', '<?= $blog['slug'] ?>', '<?= $blog['description'] ?>', '<?= $blog['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
-                        <a href="/blog/delete/<?= $blog['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr>
-                <td colspan="4" class="text-center py-4">Henüz blog eklenmemiş.</td>
-            </tr>
-        <?php endif; ?>
-    </tbody>
-</table>
-
     <!-- Güncelleme Formu -->
-    <div id="updateForm" class="hidden mt-6">
-        <h2 class="text-xl font-semibold mb-4">Blog Güncelle</h2>
-        <form action="/blog/update" method="post" enctype="multipart/form-data">
+    <div id="updateForm" class="hidden mt-6 p-4 border rounded-md shadow-sm bg-white relative">
+        <form action="/blog/update" method="post" enctype="multipart/form-data">   
+
+             <div class="flex justify-between items-center">
+
+    <h2 class="text-lg font-semibold mb-4 text-gray-800">Blog Güncelle</h2>
+    <button onclick="closeUpdateForm()" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 text-sm">Kapat</button>
+
+         </div>   
+
             <input type="hidden" id="update_id" name="id">
 
-            <div>
-                <label for="update_title" class="block text-sm font-medium text-gray-700">Başlık</label>
-                <input type="text" id="update_title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+            <div class="mb-4">
+                <label for="update_title" class="block text-sm font-medium text-gray-600">Başlık</label>
+                <input type="text" id="update_title" name="title" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm" required>
             </div>
-            <div>
-                <label for="update_slug" class="block text-sm font-medium text-gray-700">URL</label>
-                <input type="text" id="update_slug" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-
-            <div>
-                <label for="update_description" class="block text-sm font-medium text-gray-700">Açıklama</label>
-                <textarea id="update_description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+            <div class="mb-4">
+                <label for="update_slug" class="block text-sm font-medium text-gray-600">URL</label>
+                <input type="text" id="update_slug" name="slug" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm">
             </div>
 
-            <div>
-                <label for="update_image" class="block text-sm font-medium text-gray-700">Resim</label>
-                <input type="file" id="update_image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                <img id="update_image_preview" src="" alt="Mevcut Blog Resmi" class="mt-2 w-32 h-32 object-cover rounded-md" />
+            <div class="mb-4">
+                <label for="update_description" class="block text-sm font-medium text-gray-600">Açıklama</label>
+                <textarea id="update_description" name="description" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="update_image" class="block text-sm font-medium text-gray-600">Resim</label>
+                <input type="file" id="update_image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm">
+                <img id="update_image_preview" src="" alt="Mevcut Blog Resmi" class="mt-2  h-20 object-contain" />
             </div>
 
             <div class="flex justify-end">
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Güncelle</button>
+                <button type="submit" class="bg-[#475569] text-white px-4 py-2 rounded-md hover:bg-[#475569]/80 text-sm">Güncelle</button>
             </div>
         </form>
     </div>
 </div>
-
 <script>
+  // Blog Ekleme Formunu Göster
+function showBlogForm() {
+    // Güncelleme formunu kapat
+    document.getElementById('updateForm').classList.add('hidden');
+    // Ekleme formunu göster
+    document.getElementById('addBlogForm').classList.remove('hidden');
+}
+
+// Blog Ekleme Formunu Kapat
+function closeBlogForm() {
+    document.getElementById('addBlogForm').classList.add('hidden');
+}
+
+// Güncelleme formunu göster
+function showUpdateForm(id, title, slug, description, image) {
+    // Ekleme formunu kapat
+    document.getElementById('addBlogForm').classList.add('hidden');
     // Güncelleme formunu göster
-    function showUpdateForm(id, title, slug, description, image) {
-        document.getElementById('update_id').value = id;
-        document.getElementById('update_title').value = title;
-        document.getElementById('update_slug').value = slug;
-        document.getElementById('update_description').value = description;
-        document.getElementById('update_image_preview').src = image ? "/" + image : ''; // Resim var ise göster
-        document.getElementById('updateForm').classList.remove('hidden');
-    }
+    document.getElementById('update_id').value = id;
+    document.getElementById('update_title').value = title;
+    document.getElementById('update_slug').value = slug;
+    document.getElementById('update_description').value = description;
+    document.getElementById('update_image_preview').src = image ? "/" + image : ''; // Resim var ise göster
+    document.getElementById('updateForm').classList.remove('hidden');
+}
+
+// Güncelleme Formunu Kapat
+function closeUpdateForm() {
+    document.getElementById('updateForm').classList.add('hidden');
+}
+
 </script>
