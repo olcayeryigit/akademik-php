@@ -6,6 +6,17 @@ use App\Models\BlogModel;
 
 class BlogController extends BaseController
 {
+
+ // BlogModel sınıfını başlatmak için özelliği tanımlıyoruz
+ protected $blogModel;
+
+ public function __construct()
+ {
+     // BlogModel'i başlatıyoruz
+     $this->blogModel = new BlogModel();
+ }
+
+
     // Blogları listeleme
     public function index()
     {
@@ -138,7 +149,16 @@ class BlogController extends BaseController
       ]);
   }
   
+// Blog durumunu güncelleme işlemi
+ // Blog durumu güncelleme
+ public function updateStatus($id, $status)
+{
+    // Blog durumunu güncelle
+    $isUpdated = $this->blogModel->updateStatus($id, $status);  // Model üzerinden çağırıyoruz
 
+
+    return redirect()->to('/dashboard');
+}
 
 
 }

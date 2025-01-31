@@ -3,7 +3,7 @@
     <div class="container mx-auto bg-[#013042] rounded-t-xl">
         <div class="announcement-swiper-container overflow-hidden w-full relative">
             <div class="swiper-wrapper">
-                <?php foreach ($announcements as $announcement): ?>
+                <?php foreach ($publishedAnnouncements as $announcement): ?>
                     <div class="swiper-slide flex flex-col md:flex-row">
                         <div class="w-full md:w-1/2 p-6 md:px-10  md:py-8">
                             <img src="<?php echo base_url('' . $announcement['image']); ?>" alt="Duyuru Resmi" class="w-full h-28 md:h-40 object-cover rounded-xl md:rounded-[2rem]" />

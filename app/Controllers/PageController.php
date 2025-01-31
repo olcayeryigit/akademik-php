@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\UserModel;
@@ -41,19 +40,30 @@ public function __construct()
 public function home()
 {
     // Blog verisini al
-    $blogs = $this->blogModel->findAll();
-    $announcements = $this->announcementModel->findAll();  // Değişken ismini burada doğru kullanıyoruz
-    $about=$this->aboutModel->findAll();
-    $mainContent=$this->mainContentModel->findAll();
+    $blogs = $this->blogModel->findAll();  // $this->blogModel olarak doğru şekilde çağırılmalı
+    $publishedBlogs = $this->blogModel->getBlogsByStatus(1);  // Status 1 olanları getir
+
+    // Diğer model verilerini al
+    $announcements = $this->announcementModel->findAll();
+    $publishedAnnouncements = $this->announcementModel->getAnnouncementsByStatus(1);  // Status 1 olanları getir
+
+
+    $about = $this->aboutModel->findAll();
+    $mainContent = $this->mainContentModel->findAll();
     $imageSection = $this->imageSectionModel->findAll();
     $testimonals = $this->testimonalsModel->findAll();
 
-    
-
-
-
     // View'a gönder
-    return view('home', ['blogs' => $blogs, 'announcements' => $announcements,'about'=> $about,'mainContent'=>$mainContent,'imageSection'=>$imageSection,'testimonals'=>$testimonals]);  // Burada da doğru değişken adı kullanılıyor
+    return view('home', [
+        'blogs' => $blogs,
+        'publishedBlogs' => $publishedBlogs,
+        'announcements' => $announcements,
+        'publishedAnnouncements'=>$publishedAnnouncements,
+        'about' => $about,
+        'mainContent' => $mainContent,
+        'imageSection' => $imageSection,
+        'testimonals' => $testimonals
+    ]);
 }
 
 
@@ -240,3 +250,27 @@ $testimonals = $this->testimonalsModel->getTestimonals();
 
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

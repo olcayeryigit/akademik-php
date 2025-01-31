@@ -5,6 +5,18 @@ use App\Models\AnnouncementModel;
 
 class AnnouncementController extends BaseController {
 
+ // BlogModel sınıfını başlatmak için özelliği tanımlıyoruz
+ protected $announcementModel;
+
+ public function __construct()
+ {
+     // BlogModel'i başlatıyoruz
+     $this->announcementModel = new AnnouncementModel();
+ }
+
+
+
+
     // Duyuruları Listeleme
     public function index() {
         $model = new AnnouncementModel();
@@ -106,4 +118,20 @@ class AnnouncementController extends BaseController {
 
         return redirect()->to('/dashboard');
     }
+
+
+// Duyuru durumunu güncelleme işlemi
+ 
+ public function updateStatus($id, $status)
+{
+    // Duyuru durumunu güncelle
+    $isUpdated = $this->announcementModel->updateStatus($id, $status);  // Model üzerinden çağırıyoruz
+
+
+    return redirect()->to('/dashboard');
+}
+
+
+
+
 }

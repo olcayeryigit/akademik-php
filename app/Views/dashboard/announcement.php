@@ -45,7 +45,8 @@
                     <tr>
                         <td class="py-2 px-4 border-b"><?= $announcement['id'] ?></td>
                         <td class="py-2 px-4 border-b"><?= $announcement['title'] ?></td>
-
+                        <a href="/announcement/update-status/<?= $announcement['id'] ?>/1" class="text-green-500 hover:text-green-700 ml-4">Yayınla</a>
+                        <a href="/announcement/update-status/<?= $announcement['id'] ?>/0" class="text-yellow-500 hover:text-yellow-700 ml-4">Taslak</a>
                         <td class="py-2 px-4 border-b">
                             <a href="#" onclick="showUpdateForm2(<?= $announcement['id'] ?>, '<?= $announcement['title'] ?>','<?= $announcement['slug'] ?>', '<?= $announcement['description'] ?>', '<?= $announcement['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
                             <a href="/announcement/delete/<?= $announcement['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>

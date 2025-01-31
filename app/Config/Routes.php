@@ -2,6 +2,8 @@
 
 use CodeIgniter\Router\RouteCollection;
 
+use App\Controllers\FormController;
+
 /**
  * @var RouteCollection $routes
  */
@@ -20,6 +22,8 @@ $routes->post('/blog/store', 'BlogController::store');   // Blog kaydetme
 $routes->get('/blog/edit/(:num)', 'BlogController::edit/$1');
 $routes->post('/blog/update', 'BlogController::update');
 $routes->get('/blog/delete/(:num)', 'BlogController::delete/$1');  // Blog silme
+$routes->get('blog/update-status/(:num)/(:num)', 'BlogController::updateStatus/$1/$2');
+
 //duyuru
 $routes->get('/announcement', 'AnnouncementController::index'); // 
 $routes->get('/announcement/create', 'AnnouncementController::create');  
@@ -27,6 +31,8 @@ $routes->post('/announcement/store', 'AnnouncementController::store');
 $routes->get('/announcement/edit/(:num)', 'AnnouncementController::edit/$1');
 $routes->post('/announcement/update', 'AnnouncementController::update');
 $routes->get('/announcement/delete/(:num)', 'AnnouncementController::delete/$1');  
+$routes->get('announcement/update-status/(:num)/(:num)', 'BlogController::updateStatus/$1/$2');
+
 //about
 $routes->get('/about', 'AboutController::index'); 
 $routes->get('/about/edit/(:num)', 'AboutController::edit/$1');
@@ -50,5 +56,7 @@ $routes->get('/testimonal/edit/(:num)', 'TestimonalsController::edit/$1');
 $routes->post('/testimonal/store','TestimonalsController::store');
 $routes->get('/testimonal/delete/(:num)', 'TestimonalsController::delete/$1');  // Blog silme
 
-//blog-
+//blog-detail
 $routes->get('blog/(:segment)', 'BlogController::viewBlog/$1'); 
+//form
+$routes->post('submit_form', [FormController::class, 'submit_form']);

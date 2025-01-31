@@ -25,7 +25,7 @@
       </div>
     </div>
     <!-- Main Slider Sonu -->
-
+   
     <!-- Form ve Resim -->
     <div class="w-full lg:w-1/3 flex flex-col">
       <!-- FORM -->
@@ -35,7 +35,12 @@
             <img src="/assets/icons/bilgi-formu-icon.svg" class="h-8"/>
             <p class="text-lg"><span class="font-extrabold">Ön Bilgi</span> Formu</p>
           </div>
-          <form class="space-y-1">
+          <?php
+$baseURL = getenv('app.baseURL');
+?>
+          <form class="mt-4 space-y-4" action="<?= site_url('submit_form'); ?>" method="POST">
+
+          
             <!-- Ad -->
             <div>
               <label for="name" class="block text-xs text-black font-semibold">Adınız</label>

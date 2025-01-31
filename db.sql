@@ -18,9 +18,11 @@ CREATE TABLE blogs (
     description TEXT,
     image VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status TINYINT(1) DEFAULT 1 -- Durum sütunu, varsayılan olarak 1
 );
+
 
 
 CREATE TABLE announcements(
@@ -31,7 +33,9 @@ CREATE TABLE announcements(
   image VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  status TINYINT(1) DEFAULT 1 -- Durum sütunu, varsayılan olarak 1
+
 );
 
 CREATE TABLE about(
@@ -70,6 +74,15 @@ CREATE TABLE testimonals(
   image VARCHAR(255)
 );
 
+
+CREATE TABLE `webforms` (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name  varchar(255) NOT NULL,
+  lastname varchar(255) NOT NULL,
+  phone varchar(20) NOT NULL,
+  message text NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 
 INSERT INTO about (mainparagraph, mission, vision, paragraph2, paragraph3)

@@ -29,7 +29,7 @@
   <div class="swiper-wrapper ">
 
 
-<?php foreach ($blogs as $blog): ?>
+<?php foreach ($publishedBlogs as $blog): ?>
     <div class="swiper-slide">
         <div class="card bg-white rounded-lg p-4">
             <img src="<?= base_url('' . $blog['image']); ?>" alt="Blog Resmi" class="w-full h-32 object-cover rounded-lg" />

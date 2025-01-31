@@ -20,7 +20,7 @@
 
             <div>
                 <label for="image" class="block text-sm font-medium text-gray-700">Resim</label>
-                <input type="file" id="image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <input type="file" id="image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"required>
             </div>
 
             <div class="flex justify-end">
@@ -31,33 +31,40 @@
 
     <!-- Blog Listesi -->
     <table class="min-w-full bg-white border border-gray-300">
-        <thead>
-            <tr>
-                <th class="py-2 px-4 border-b">ID</th>
-                <th class="py-2 px-4 border-b">Başlık</th>
-
-                <th class="py-2 px-4 border-b">Aksiyon</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($blogs)): ?>
-                <?php foreach ($blogs as $blog): ?>
-                    <tr>
-                        <td class="py-2 px-4 border-b"><?= $blog['id'] ?></td>
-                        <td class="py-2 px-4 border-b"><?= $blog['title'] ?></td>
-                        <td class="py-2 px-4 border-b">
-                            <a href="#" onclick="showUpdateForm(<?= $blog['id'] ?>, '<?= $blog['title'] ?>', '<?= $blog['slug'] ?>', '<?= $blog['description'] ?>', '<?= $blog['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
-                            <a href="/blog/delete/<?= $blog['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
+    <thead>
+        <tr>
+            <th class="py-2 px-4 border-b">ID</th>
+            <th class="py-2 px-4 border-b">Başlık</th>
+            <th class="py-2 px-4 border-b">Durum</th>
+            <th class="py-2 px-4 border-b">Aksiyon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (!empty($blogs)): ?>
+            <?php foreach ($blogs as $blog): ?>
                 <tr>
-                    <td colspan="3" class="text-center py-4">Henüz blog eklenmemiş.</td>
+                    <td class="py-2 px-4 border-b"><?= $blog['id'] ?></td>
+                    <td class="py-2 px-4 border-b"><?= $blog['title'] ?></td>
+                    <td class="py-2 px-4 border-b"><?= $blog['status'] == 1 ? 'Aktif' : 'Pasif' ?></td>
+
+
+
+                    <td class="py-2 px-4 border-b">
+                 
+                    <a href="/blog/update-status/<?= $blog['id'] ?>/1" class="text-green-500 hover:text-green-700 ml-4">Yayınla</a>
+<a href="/blog/update-status/<?= $blog['id'] ?>/0" class="text-yellow-500 hover:text-yellow-700 ml-4">Taslak</a>
+   <a href="#" onclick="showUpdateForm(<?= $blog['id'] ?>, '<?= $blog['title'] ?>', '<?= $blog['slug'] ?>', '<?= $blog['description'] ?>', '<?= $blog['image'] ?>')" class="text-yellow-500 hover:text-yellow-700 ml-4">Güncelle</a>
+                        <a href="/blog/delete/<?= $blog['id'] ?>" class="text-red-500 hover:text-red-700 ml-4" onclick="return confirm('Bu blogu silmek istediğinizden emin misiniz?')">Sil</a>
+                    </td>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="4" class="text-center py-4">Henüz blog eklenmemiş.</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
 
     <!-- Güncelleme Formu -->
     <div id="updateForm" class="hidden mt-6">
@@ -99,7 +106,7 @@
         document.getElementById('update_title').value = title;
         document.getElementById('update_slug').value = slug;
         document.getElementById('update_description').value = description;
-        document.getElementById('update_image_preview').src = "/" + image;
+        document.getElementById('update_image_preview').src = image ? "/" + image : ''; // Resim var ise göster
         document.getElementById('updateForm').classList.remove('hidden');
     }
 </script>

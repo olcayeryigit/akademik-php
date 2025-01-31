@@ -47,7 +47,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
   <div class="form-container h-[100vh] p-4 bg-[#FE7800] rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
   <img class="w-64 rounded-2xl border-white " src="assets/images/modal-image.jpg"/>
-  <form class="mt-4 space-y-4" action="#" method="POST">
+  <form class="mt-4 space-y-4"action="<?= ('http://localhost:8080/FormController/submit_form'); ?>" method="POST">
 
   <!-- Ad -->
   <div>
