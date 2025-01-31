@@ -12,5 +12,8 @@ class Webform_model extends Model {
         // Verileri 'webforms' tablosuna ekleme
         return $this->save($data); // save() metodu insert işlemi yapar
     }
+
+
+
 }
 ?>

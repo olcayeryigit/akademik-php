@@ -8,6 +8,7 @@
 <?= $this->include('dashboard/mainContent') ?> 
 <?= $this->include('dashboard/imageSection') ?> 
 <?= $this->include('dashboard/testimonals') ?> 
+<?= $this->include('dashboard/webforms') ?> 
 
 
 <?= $this->endSection() ?>

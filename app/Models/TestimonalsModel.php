@@ -8,10 +8,6 @@ class TestimonalsModel extends Model{
     protected $allowedFields=['image','title'];
 
 
-     public function getTestimonals()
-     {
-         return $this->findAll();
-     }
 
 
      public function getTestimonalById($id)

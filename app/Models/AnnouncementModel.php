@@ -12,10 +12,6 @@ class AnnouncementModel extends Model
 
 //Duyuruları getir
 
-public function getAnnouncements(){
-    return $this->findAll();
-}
-
 
  // State'i 1 olan duyuruları getirir
  public function getAnnouncementsByStatus($status)

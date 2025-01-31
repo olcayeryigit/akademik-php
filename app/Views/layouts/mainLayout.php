@@ -33,7 +33,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 <span>Whatsapp</span>
 </a>
 <!-- Call Buton -->
-<a href="tel:4448016" target="_blank" class="bg-[#DC001E] fixed left-28 md:left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
+<a href="tel:4448016"  class="bg-[#DC001E] fixed left-28 md:left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
 <img src="/assets/icons/social/phone.svg" class="h-5 md:h-6 object-contain"/>
 
 <span>Hemen Ara</span>

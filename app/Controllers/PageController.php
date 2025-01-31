@@ -8,6 +8,7 @@ use App\Models\AboutModel;
 use App\Models\MainContentModel;
 use App\Models\ImageSectionModel;
 use App\Models\TestimonalsModel;
+use App\Models\webform_model;
 
 class PageController extends BaseController
 {
@@ -19,6 +20,7 @@ protected $aboutModel;
 protected $mainContentModel;
 protected $imageSectionModel;
 protected $testimonalsModel;
+protected $webformModel;
 
 public function __construct()
 {
@@ -29,6 +31,7 @@ public function __construct()
     $this->mainContentModel=new MainContentModel();
     $this->imageSectionModel=new ImageSectionModel();
     $this->testimonalsModel=new TestimonalsModel();
+    $this->webformModel = new Webform_model();
 
 
 
@@ -122,12 +125,12 @@ public function home()
     
         // BlogModel'i çağırarak blog verilerini alın
         $blogModel = new BlogModel();
-        $blogs = $blogModel->getBlogs();
+        $blogs = $blogModel->findAll();
       
     
         // AnnouncementModel'i çağırarak duyuru verilerini alın
         $announcementModel = new AnnouncementModel();
-        $announcements = $announcementModel->getAnnouncements();
+        $announcements = $announcementModel->findAll();
     
         //AboutModeli çağır
         $aboutModel=new AboutModel();
@@ -143,7 +146,12 @@ $imageSection=$imageSectionModel->getImageSectionById(1);
 
 $testimonalsModel=new TestimonalsModel();
 // PageController içinde, doğru çağrıyı yapın:
-$testimonals = $this->testimonalsModel->getTestimonals();
+$testimonals = $this->testimonalsModel->findAll();
+
+
+$webformModel=new Webform_model();
+$webforms = $this->webformModel->findAll();
+
 
         // View'e $blogs ve $announcements verilerini gönderin
         return view('dashboard', [
@@ -153,7 +161,8 @@ $testimonals = $this->testimonalsModel->getTestimonals();
             'about'=>$about,
             'mainContent'=>$mainContent,
             'imageSection'=>$imageSection,
-            'testimonals'=>$testimonals
+            'testimonals'=>$testimonals,
+            'webforms'=>$webforms
         ]);
     }
     
@@ -247,6 +256,18 @@ $testimonals = $this->testimonalsModel->getTestimonals();
 }
 
 
+public function dashboardWebform(){
+    if(!session()->get('isLoggedIn')){
+        return redirect()->to('/login');
+    }
+
+
+    $webformModel=new Webform_model();
+// PageController içinde, doğru çağrıyı yapın:
+$webforms = $this->webformModel->findAll();
+
+    return view('dashboard',['title'=>'Dashboard','webforms'=>$webforms]);
+}
 
    
 }
