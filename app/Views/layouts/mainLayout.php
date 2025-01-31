@@ -47,20 +47,24 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
   <div class="form-container h-[100vh] p-4 bg-[#FE7800] rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
   <img class="w-64 rounded-2xl border-white " src="assets/images/modal-image.jpg"/>
-  <form class="mt-4 space-y-4"action="<?= ('http://localhost:8080/FormController/submit_form'); ?>" method="POST">
+ 
+  <?php
+$baseURL = getenv('app.baseURL');
+?>
 
+  <form class="mt-4 space-y-4" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm2">
   <!-- Ad -->
   <div>
-    <label for="name" class="block text-sm text-white font-bold">Adınız</label>
+    <label for="name" class="block text-xs text-black font-semibold">Adınız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/name.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="/assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
       </span>
       <input
         type="text"
         id="name"
         name="name"
-        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        class="mt-1 block w-full pl-8 px-2.5 py-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-red-600 text-xs"
         placeholder="Adınız"
         required
       />
@@ -69,16 +73,16 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
   <!-- Soyad -->
   <div>
-    <label for="lastname" class="block text-sm text-white font-bold">Soyadınız</label>
+    <label for="lastname" class="block text-xs text-black font-semibold">Soyadınız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/name.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="/assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
       </span>
       <input
         type="text"
         id="lastname"
         name="lastname"
-        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        class="mt-1 block w-full pl-8 px-2.5 py-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-red-600 text-xs"
         placeholder="Soyadınız"
         required
       />
@@ -87,16 +91,16 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
   <!-- Telefon Numarası -->
   <div>
-    <label for="phone" class="block text-sm text-white font-bold">Telefon Numaranız</label>
+    <label for="phone" class="block text-xs text-black font-semibold">Telefon Numaranız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/phone-alt.svg" class="h-6 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="/assets/icons/phone-alt.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
       </span>
       <input
         type="tel"
         id="phone"
         name="phone"
-        class="mt-1 block w-full pl-10 px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+        class="mt-1 block w-full pl-8 px-2.5 py-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-red-600 text-xs"
         placeholder="Telefon numaranız"
         required
       />
@@ -105,20 +109,29 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
   <!-- Mesaj -->
   <div>
-    <label for="message" class="block text-sm text-white font-bold">Mesajınız</label>
+    <label for="message" class="block text-xs text-black font-semibold">Mesajınız</label>
     <textarea
       id="message"
       name="message"
-      rows="4"
-      class="mt-1 block w-full px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#013042]"
+      rows="2"
+      class="mt-1 block w-full px-2.5 py-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-red-600 text-xs"
       placeholder="Mesajınızı yazınız"
       required
     ></textarea>
   </div>
 
+  <!-- Gönder Butonu -->
+  <div>
+    <button
+      type="submit"
+      class="w-full px-2.5 py-1.5 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-xs transition duration-300 ease-in-out flex items-center justify-center gap-1"
+    >
+      <img src="/assets/icons/send.svg" class="h-4 object-contain"/>
+      <span class="text-xs">Gönder</span>
+    </button>
+  </div>
+</form>
 
-    <button type="submit" class=" w-full py-2 bg-[#013042] text-white font-bold rounded-md hover:bg-[#0e3f51] transition duration-300">Gönder</button>
-  </form>
   </div>
   <button
   id="toggleButton"
@@ -290,7 +303,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         <div class="w-full md:w-1/3 px-4">
   <h3 class="font-bold mb-4 text-[#FEFEFE] text-md md:text-lg">Haberdar Ol!</h3>
   <p class="text-xs md:text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
-  <form class="relative w-full">
+  <?php
+$baseURL = getenv('app.baseURL');
+?>
+       <form class="relative w-full" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm">
+
     <!-- E-posta Girişi -->
     <div class="relative">
       <input
@@ -396,7 +413,48 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 <script type="module" src="/assets/js/form.js"></script>
 <script type="module" src="/assets/js/about.js"></script>
 <script type="module" src="/assets/js/top-button.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+  // Form gönderildiğinde
+document.getElementById('myForm2').addEventListener('submit', function(event) {
+    event.preventDefault(); // Sayfa yenilenmesinin engellenmesi
 
+    var formData = new FormData(this);
+
+    fetch('<?= site_url('submit_form'); ?>', { // 'submit_form' URL'sine POST isteği gönder
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())  // JSON yanıtını parse et
+    .then(data => {
+        // Yanıt başarı durumuna göre
+        if (data.status === 'success') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarıyla Gönderildi',
+                text: data.message,  // Mesajı al ve göster
+            }).then(() => {
+                // Formu sıfırlama
+                document.getElementById('myForm').reset();
+            });
+        } else if (data.status === 'error') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata',
+                text: data.message,  // Hata mesajını al ve göster
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Hata',
+            text: 'Bir hata oluştu, lütfen tekrar deneyin.',
+        });
+    });
+});
+
+  </script>
 </body>
 </html>

@@ -1,12 +1,15 @@
 <?php
+namespace App\Controllers;
+use App\Models\Webform_model;
 
 namespace App\Controllers;
-use App\Models\webform_model;
+use App\Models\Webform_model;
 
 class FormController extends BaseController {
 
+    protected $model;
+
     public function __construct() {
-        // Modeli yükle
         $this->model = new Webform_model();
     }
 
@@ -15,20 +18,16 @@ class FormController extends BaseController {
         $data = array(
             'name' => $this->request->getPost('name'),
             'lastname' => $this->request->getPost('lastname'),
-            'phone' => $this->request->post('phone'),
-            'message' => $this->request->post('message'),
+            'phone' => $this->request->getPost('phone'),
+            'message' => $this->request->getPost('message'),
             'created_at' => date('Y-m-d H:i:s')
         );
 
-        print_r($data); exit();
-
         // Verileri model aracılığıyla eklemek
-        if ($this->Webform_model->insert_form_data($data)) {
-            // Başarılı ekleme sonrası bir şeyler yapabilirsiniz
-            echo "Form başarıyla gönderildi!";
-        } else {
-            // Hata durumu
-            echo "Bir hata oluştu, lütfen tekrar deneyin.";
+        if ($this->model->insert_form_data($data)) {  // Modelden gelen başarı
+            return $this->response->setJSON(['status' => 'success', 'message' => 'Form başarıyla gönderildi!']);
+        } else {  // Modelden gelen hata
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Bir hata oluştu, lütfen tekrar deneyin.']);
         }
     }
 }
