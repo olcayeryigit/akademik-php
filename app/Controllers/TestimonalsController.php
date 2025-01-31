@@ -59,7 +59,7 @@ class TestimonalsController extends BaseController
             'image' => $imagePath,
         ]);
 
-        return redirect()->to('/');
+        return redirect()->to('/dashboard');
     }
 
 

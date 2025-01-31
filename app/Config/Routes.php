@@ -33,7 +33,7 @@ $routes->post('/announcement/store', 'AnnouncementController::store');
 $routes->get('/announcement/edit/(:num)', 'AnnouncementController::edit/$1');
 $routes->post('/announcement/update', 'AnnouncementController::update');
 $routes->get('/announcement/delete/(:num)', 'AnnouncementController::delete/$1');  
-$routes->get('announcement/update-status/(:num)/(:num)', 'BlogController::updateStatus/$1/$2');
+$routes->get('announcement/update-status/(:num)/(:num)', 'AnnouncementController::updateStatus/$1/$2');
 
 //about
 $routes->get('/about', 'AboutController::index'); 
@@ -60,6 +60,7 @@ $routes->get('/testimonal/delete/(:num)', 'TestimonalsController::delete/$1');  
 
 //blog-detail
 $routes->get('blog/(:segment)', 'BlogController::viewBlog/$1'); 
+
 //form
 $routes->post('submit_form', [FormController::class, 'submit_form']);
 $routes->get('form-data', 'FormController::list_form_data');

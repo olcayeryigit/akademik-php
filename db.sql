@@ -100,8 +100,8 @@ INSERT INTO mainContent (mainImage, image2)
 VALUES ('["/assets/images/slider-1.jpg", "/assets/images/slider-2.jpg"]', '/assets/images/duyuru-kart.jpg');
 
 INSERT INTO imageSection (title,image,mobileImage) 
-VALUES (  'title','/assets/images/duyuru-kart.jpg','/assets/images/slider-1.jpg');
+VALUES (  'title','/assets/images/ara-slider-bursluluk.jpg','/assets/images/ara-slider-bursluluk-m.jpg');
 
 
 INSERT INTO testimonals (title,image) 
-VALUES (  'title','/assets/images/duyuru-kart.jpg');
+VALUES (  'title','/assets/images/partners/british-council.svg');

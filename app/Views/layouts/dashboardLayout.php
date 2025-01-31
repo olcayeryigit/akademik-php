@@ -54,11 +54,22 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         Webform
       </button>  
     </div>
+<div class="flex gap-4">
+    
+     <a id="logoutLink" href="/" class="px-4 py-2  text-white  rounded-lg shadow-md  transition-all duration-300 text-md rounded-lg shadow-md bg-green-500 hover:bg-green-600 transition-all duration-300">
+     Siteye Git
 
+
+    </a>
+    
     <!-- Çıkış Yap Linki -->
     <a id="logoutLink" href="/logout" class="px-4 py-2  text-white  rounded-lg shadow-md  transition-all duration-300 text-md rounded-lg shadow-md bg-red-500 hover:bg-red-600 transition-all duration-300">
       Çıkış Yap
     </a>
+
+
+ 
+</div>
 
   </div>
 </header>

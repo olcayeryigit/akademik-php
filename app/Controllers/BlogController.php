@@ -79,7 +79,7 @@ class BlogController extends BaseController
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
-        return redirect()->to('/');
+        return redirect()->to('/dashboard');
     }
 
     // Blog güncelleme formunu gösterir

@@ -1,18 +1,13 @@
-
 <section id="" class="container mx-auto pt-10 pb-8 md:px-0 lg:px-12 md:py-16">
 
-<div class="testimonials-swiper-container overflow-hidden w-full relative">
-  <div class="swiper-wrapper md:flex md:items-center md:justify-center md:gap-2 ">
-  <?php foreach ($testimonals as $testimonal): ?>
-
-  <div class="swiper-slide flex items-center justify-center">
-    <img src="<?= base_url('' . $testimonal['image']); ?>" alt="Blog Resmi" class="h-16 md:h-12 object-contain" />
+  <div class="testimonials-swiper-container overflow-hidden w-full relative">
+    <div class="swiper-wrapper flex md:flex-row md:items-center md:justify-center gap-2">
+      <?php foreach ($testimonals as $testimonal): ?>
+        <div class="swiper-slide flex items-center justify-center w-auto">
+          <img src="<?= base_url('' . $testimonal['image']); ?>" alt="Blog Resmi" class="h-16 md:h-12 object-contain" />
+        </div>
+      <?php endforeach; ?>
+    </div>
   </div>
-  
-</div>
-<?php endforeach; ?>
-
-</div>
 
 </section>
-

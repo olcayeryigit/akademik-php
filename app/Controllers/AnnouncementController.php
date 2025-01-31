@@ -73,7 +73,7 @@ class AnnouncementController extends BaseController {
             'created_at'  => date('Y-m-d H:i:s')
         ]);
 
-        return redirect()->to('/');
+        return redirect()->to('/dashboard');
     }
 
     // Duyuru Güncelleme Formu
@@ -130,6 +130,8 @@ class AnnouncementController extends BaseController {
 
     return redirect()->to('/dashboard');
 }
+
+
 
 
 

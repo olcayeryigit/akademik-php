@@ -11,7 +11,7 @@
           foreach ($mainImages as $image): 
         ?>
         <div class="swiper-slide"> 
-          <img src="<?= base_url('' . $image); ?>" class="w-full h-full rounded-xl object-contain"/>
+          <img src="<?= base_url('' . $image); ?>" class="w-full h-full  rounded-xl object-contain"/>
         </div>
         <?php endforeach; ?>
       </div>
