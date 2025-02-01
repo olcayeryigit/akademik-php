@@ -60,6 +60,11 @@ $routes->get('/testimonal/delete/(:num)', 'TestimonalsController::delete/$1');  
 
 //blog-detail
 $routes->get('blog/(:segment)', 'BlogController::viewBlog/$1'); 
+$routes->get('announcement/(:segment)', 'AnnouncementController::viewAnnouncement/$1'); 
+//detaile tümünüde göndereceğim
+$routes->get('blog/(:segment)', 'BlogController::index'); 
+
+
 
 //form
 $routes->post('submit_form', [FormController::class, 'submit_form']);

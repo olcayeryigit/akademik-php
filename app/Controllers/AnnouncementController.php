@@ -132,7 +132,24 @@ class AnnouncementController extends BaseController {
 }
 
 
-
+ // Blog detay sayfasını gösterir
+ public function viewAnnouncement($slug)
+ {
+     $announcementsModel = new AnnouncementModel(); // Blog modelini çağır
+ 
+     $announcement = $announcementsModel->where('slug', $slug)->first();
+ 
+     if (!$announcement) {
+         return redirect()->to('/404'); // Eğer blog bulunamazsa 404 sayfasına yönlendir
+     }
+ 
+     // MainLayout için title parametresi gönder
+     return view('announcement/view', [
+         'announcement' => $announcement,
+         'title' => $announcement['title'] // Title'ı ilet
+     ]);
+ }
+ 
 
 
 

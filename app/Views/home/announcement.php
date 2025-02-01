@@ -15,7 +15,7 @@
                                 <?php echo esc($announcement['description']); ?>
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="/blog/<?= esc($announcement['slug'])?>"  class="w-40 text-center py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-sm md:text-md text-white rounded-md font-bold">
+                                <a href="/announcement/<?= esc($announcement['slug'])?>"  class="w-40 text-center py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-sm md:text-md text-white rounded-md font-bold">
                                     Devamını Oku!
                                 </a>
                             </div>
