@@ -9,6 +9,7 @@
 <body class="bg-gray-100  ">
 <div class="w-full container mx-auto flex justify-center py-12">
   <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <?php print_r(session()->getFlashData('error')) ?>
     <h2 class="text-2xl font-semibold text-center mb-6">Giriş Yap</h2>
 
     <form action="/login-action" method="POST">

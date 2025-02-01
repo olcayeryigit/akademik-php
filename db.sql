@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 -- Örnek bir kullanıcı ekleme
 INSERT INTO users (email, password) 
-VALUES ('olcay@hotmail.com', '123456');
+VALUES ('olcay@hotmail.com', '$2a$12$wW3NKnX8MvM6Va2k4dj1B.dx0MODBnHnPcxLwtPpLTMJsrpJUkp0y');
 
 
 CREATE TABLE blogs (

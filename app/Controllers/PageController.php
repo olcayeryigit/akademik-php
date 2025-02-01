@@ -92,7 +92,7 @@ public function home()
         $userModel = new UserModel();
         $user = $userModel->where('email', $email)->first();
 
-        if ($user && $user['password'] === $password) {
+        if ($user && password_verify($password, $user['password'])) {
             session()->set('isLoggedIn', true);
             session()->set('userId', $user['id']);
             session()->set('userEmail', $user['email']);
