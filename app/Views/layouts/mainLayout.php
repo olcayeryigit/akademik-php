@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'My Website' ?></title>
+    <title><?= $title ?? 'Bursa Koleji' ?></title>
 <!-- custom css -->
 
 <link href="assets/css/style.css" rel="stylesheet" />
@@ -17,40 +17,22 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
 </head>
 <body>
-   <!-- Bottom Buton -->
-<button class="scroll-top fixed right-4 bottom-8 z-[9999] flex items-center justify-center rounded-full p-2 opacity-0 transition-opacity duration-300">
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-    <rect width="24" height="24" fill="white" rx="50" ry="50" />
-    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 4l-6 6m6-6l6 6m-6-6v10.5m0 5.5v-2.5"/>
-  </svg>
-</button>
 
 
-<!-- Wp Buton -->
-
-<a href="https://wa.me/905057508016" target="_blank" class="bg-[#25D366] fixed left-2 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
-  <img src="/assets/icons/social/whatsapp.svg" class="h-5 md:h-6 object-contain"/>
-<span>Whatsapp</span>
-</a>
-<!-- Call Buton -->
-<a href="tel:4448016"  class="bg-[#DC001E] fixed left-28 md:left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
-<img src="/assets/icons/social/phone.svg" class="h-5 md:h-6 object-contain"/>
-
-<span>Hemen Ara</span>
-</a>
 
 
-<header class="">
 
-<!-- Form  -->
+
+
+<!-- Form  -->  <?php
+$baseURL = getenv('app.baseURL');
+?>
 <div class="lg:hidden fixed top-1/2 -right-[285px] transform -translate-y-1/2 z-[9999] transition-all duration-500 ease-in-out" id="formContainer">
 
   <div class="form-container h-[100vh] p-4 bg-[#FE7800] rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
-  <img class="w-64 rounded-2xl border-white " src="assets/images/modal-image.jpg"/>
- 
-  <?php
-$baseURL = getenv('app.baseURL');
-?>
+  <img class="w-64 rounded-2xl border-white" src="<?= $baseURL ?>/assets/images/modal-image.jpg" alt="bursa koleji"/>
+
+
 
   <form class="mt-4 space-y-4" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm2">
   <!-- Ad -->
@@ -58,7 +40,7 @@ $baseURL = getenv('app.baseURL');
     <label for="name" class="block text-xs text-black font-semibold">Adınız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="<?= $baseURL ?>assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
       </span>
       <input
         type="text"
@@ -76,7 +58,8 @@ $baseURL = getenv('app.baseURL');
     <label for="lastname" class="block text-xs text-black font-semibold">Soyadınız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="<?= $baseURL ?>/assets/icons/name.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
+
       </span>
       <input
         type="text"
@@ -94,7 +77,7 @@ $baseURL = getenv('app.baseURL');
     <label for="phone" class="block text-xs text-black font-semibold">Telefon Numaranız</label>
     <div class="relative group">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-        <img src="/assets/icons/phone-alt.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
+        <img src="<?= $baseURL ?>/assets/icons/phone-alt.svg" class="h-5 bg-[#E8E6E7] p-1 rounded-full" />
       </span>
       <input
         type="tel"
@@ -126,7 +109,7 @@ $baseURL = getenv('app.baseURL');
       type="submit"
       class="w-full px-2.5 py-1.5 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-xs transition duration-300 ease-in-out flex items-center justify-center gap-1"
     >
-      <img src="/assets/icons/send.svg" class="h-4 object-contain"/>
+      <img src="<?= $baseURL ?>/assets/icons/send.svg" class="h-4 object-contain"/>
       <span class="text-xs">Gönder</span>
     </button>
   </div>
@@ -138,7 +121,7 @@ $baseURL = getenv('app.baseURL');
   class="absolute top-44 -left-[79px] inline-flex items-center justify-center transform h-8 -rotate-90 w-32 bg-[#FE7800] rounded-tr-xl rounded-tl-xl "
 >
   <div id="iconContainer" class="flex items-center gap-1 text-white">
-    <img id="openIcon" src="/assets/icons/message.svg" class="h-5" />
+    <img id="openIcon" src="<?= $baseURL ?>/assets/icons/message.svg" class="h-5" />
     <svg
       id="closeIcon"
       xmlns="http://www.w3.org/2000/svg"
@@ -174,42 +157,80 @@ $baseURL = getenv('app.baseURL');
 
 
 
+
+
+
+
+
+
+   <!-- Bottom Buton -->
+<button class="scroll-top fixed right-4 bottom-8 z-[9999] flex items-center justify-center rounded-full p-2 opacity-0 transition-opacity duration-300">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+    <rect width="24" height="24" fill="white" rx="50" ry="50" />
+    <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 4l-6 6m6-6l6 6m-6-6v10.5m0 5.5v-2.5"/>
+  </svg>
+</button>
+
+
+<!-- Wp Buton -->
+
+<a href="https://wa.me/905057508016" target="_blank" class="bg-[#25D366] fixed left-2 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
+  <img src="<?= $baseURL ?>/assets/icons/social/whatsapp.svg" class="h-5 md:h-6 object-contain"/>
+<span>Whatsapp</span>
+</a>
+<!-- Call Buton -->
+<a href="tel:4448016"  class="bg-[#DC001E] fixed left-28 md:left-32 bottom-8 z-[99999] flex items-center justify-center rounded-2xl py-2 text-white text-xs md:text-sm px-2 md:px-3">
+<img src="<?= $baseURL ?>/assets/icons/social/phone.svg" class="h-5 md:h-6 object-contain"/>
+
+<span>Hemen Ara</span>
+</a>
+
+
+<header class="">
+
+
+
+
   <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
     <!-- Logo -->
     <a href="#home" class="logo flex items-center gap-2">
       <div class="bg-white rounded-full px-1 py-2">
-        <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-12 object-contain">
+        <img src="<?= $baseURL ?>/assets/icons/logo-amblem.svg" alt="Logo" class="h-12 object-contain">
       </div>
-      <img src="/assets/icons/logo-yazi.svg" alt="Logo" class="h-5 object-contain">
+      <img src="<?= $baseURL ?>/assets/icons/logo-yazi.svg" alt="Logo" class="h-5 object-contain">
     </a>
 
- <!-- Hamburger Icon -->
-<button id="mobile-menu-button" class="">
-  <span class="line line-1 "></span>
-  <span class="line line-2"></span>
-  <span class="line line-3"></span>
+<!-- Hamburger Icon -->
+<button id="mobile-menu-button" class="relative lg:hidden">
+  <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-10 w-10">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+  <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-10 w-10 hidden ">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+  </svg>
 </button>
 
 
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:block">
-      <ul class="flex space-x-6">
-      <li><a href="#home" class="hover:text-[#760E0E]">Anasayfa</a></li>
-        <li><a href="#about" class="hover:text-[#760E0E]">Hakkımızda</a></li>
-        <li><a href="#" class="hover:text-[#760E0E] ">Eğitimlerimiz</a></li>
-        <li><a href="#blog" class="hover:text-[#760E0E]">Blog</a></li>
-        
-      </ul>
-    </nav>
+<!-- Desktop Navigation Links -->
+<nav class="hidden lg:block">
+  <ul class="flex space-x-6">
+    <li><a href="#home" class="nav-link hover:text-[#760E0E]">Anasayfa</a></li>
+    <li><a href="#about" class="nav-link hover:text-[#760E0E]">Hakkımızda</a></li>
+    <li><a href="#" class="nav-link hover:text-[#760E0E]">Eğitimlerimiz</a></li>
+    <li><a href="#blog" class="nav-link hover:text-[#760E0E]">Blog</a></li>
+  </ul>
+</nav>
+
 
     <!-- Contact Information -->
     <div class="hidden lg:flex space-x-4">
       <a href="tel:4448016" target="_blank">
-        <img src="/assets/icons/numara-header_1.svg" alt="" class="h-6 object-contain">
+        <img src="<?= $baseURL ?>/assets/icons/numara-header_1.svg" alt="" class="h-6 object-contain">
       </a>
       <div class="h-6 bg-gray-300 w-[0.1px]"></div>
-      <img src="/assets/icons/header-40yil.svg" alt="" class="h-6 object-contain">
+      <img src="<?= $baseURL ?>/assets/icons/header-40yil.svg" alt="" class="h-6 object-contain">
     </div>
   </div>
 
@@ -219,17 +240,17 @@ $baseURL = getenv('app.baseURL');
       <ul class="space-y-4">
       <li><a href="#home" class="block hover:text-[#760E0E]">Anasayfa</a></li>
         <li><a href="#about" class="block hover:text-[#760E0E]">Hakkımızda</a></li>
-        <li><a href="#" class="block hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="/assets/icons/header-ok.svg" class="h-2 object-contain" /></a></li>
+        <li><a href="#" class="block hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="<?= $baseURL ?>/assets/icons/header-ok.svg" class="h-2 object-contain" /></a></li>
         <li><a href="#blog" class="block hover:text-[#760E0E]">Blog</a></li>
         <li><a href="#" class="block hover:text-[#760E0E]">Kurumsal</a></li>
       </ul>
      
     </div> <div class="flex justify-between p-4 bg-[#F4F4F4]">
     <a href="tel:4448016" target="_blank">
-  <img src="/assets/icons/numara-header_1.svg" alt="" class="h-5 object-contain">
+  <img src="<?= $baseURL ?>/assets/icons/numara-header_1.svg" alt="" class="h-5 object-contain">
 </a>
 
-        <img src="/assets/icons/header-40yil.svg" alt="" class="h-5 object-contain">
+        <img src="<?= $baseURL ?>/assets/icons/header-40yil.svg" alt="" class="h-5 object-contain">
 
   
     
@@ -252,8 +273,8 @@ $baseURL = getenv('app.baseURL');
       <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-12">
         <!-- Sol: Logo ve Tanım -->
         <div class="w-full md:w-1/3 mb-4 md:mb-0 flex flex-col justify-center items-center">
-          <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-16  object-contain">
-          <img src="/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-5  object-contain">
+          <img src="<?= $baseURL ?>/assets/icons/logo-amblem.svg" alt="Logo" class="h-16  object-contain">
+          <img src="<?= $baseURL ?>/assets/icons/logo-yazi-beyaz.svg" alt="Logo" class="mt-2 h-5  object-contain">
           <p class="text-[#FEFEFE] mt-3 text-center text-xs md:text-sm px-2 md:px-0 ">
             Eşitlik, hoşgörü, adalet ve toplum değerlerimiz, eğitim misyonumuza derinden etki eden faktörler olmuştur.
           </p>
@@ -303,9 +324,7 @@ $baseURL = getenv('app.baseURL');
         <div class="w-full md:w-1/3 px-4">
   <h3 class="font-bold mb-4 text-[#FEFEFE] text-md md:text-lg">Haberdar Ol!</h3>
   <p class="text-xs md:text-sm mb-4 text-[#FEFEFE]">En son haberleri ve güncellemeleri almak için kaydolun.</p>
-  <?php
-$baseURL = getenv('app.baseURL');
-?>
+
        <form class="relative w-full" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm">
 
     <!-- E-posta Girişi -->
@@ -317,7 +336,7 @@ $baseURL = getenv('app.baseURL');
       />
       <button
         type="submit"
-        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FF3D00] text-white px-4 py-1 rounded-md hover:bg-[#FF3D00] border border-white font-bold text-sm"
+        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FF3D00] text-white px-4 pt-1.5 pb-1 rounded-md hover:bg-[#FF3D00] border border-white font-bold text-sm"
       >
         GÖNDER
       </button>
@@ -345,10 +364,10 @@ $baseURL = getenv('app.baseURL');
 
 </p>
           <ul class="flex gap-1 mt-4 mb-4 ">
-            <li><a href="https://www.facebook.com/akademikkoleji" target="_blank"><img src="/assets/icons/social/facebook.svg" alt="Facebook" class="w-8 h-8" /></a></li>
-            <li><a href="https://x.com/akademikkoleji" target="_blank"><img src="/assets/icons/social/twitter.svg" alt="x" class="w-8 h-8" /></a></li>
-            <li><a href="https://www.instagram.com/akademikkoleji/" target="_blank"><img src="/assets/icons/social/instagram.svg" alt="Instagram" class="w-8 h-8" /></a></li>
-            <li><a href="https://www.youtube.com/@akademikkoleji" target="_blank"><img src="/assets/icons/social/youtube.svg" alt="YouTube" class="w-8 h-8" /></a></li>
+            <li><a href="https://www.facebook.com/akademikkoleji" target="_blank"><img src="<?= $baseURL ?>/assets/icons/social/facebook.svg" alt="Facebook" class="w-8 h-8" /></a></li>
+            <li><a href="https://x.com/akademikkoleji" target="_blank"><img src="<?= $baseURL ?>/assets/icons/social/twitter.svg" alt="x" class="w-8 h-8" /></a></li>
+            <li><a href="https://www.instagram.com/akademikkoleji/" target="_blank"><img src="<?= $baseURL ?>/assets/icons/social/instagram.svg" alt="Instagram" class="w-8 h-8" /></a></li>
+            <li><a href="https://www.youtube.com/@akademikkoleji" target="_blank"><img src="<?= $baseURL ?>/assets/icons/social/youtube.svg" alt="YouTube" class="w-8 h-8" /></a></li>
           </ul>
           <p class="font-bold text-[#FEFEFE]">/akademikkoleji</p>
           </div>
@@ -360,7 +379,7 @@ $baseURL = getenv('app.baseURL');
      
      <div class="flex gap-4 items-center"> 
        <img
-        src="/assets/icons/destek-hatti.svg"
+        src="<?= $baseURL ?>/assets/icons/destek-hatti.svg"
         alt="Instagram"
         class="w-12 "
       />
@@ -456,5 +475,8 @@ document.getElementById('myForm2').addEventListener('submit', function(event) {
 });
 
   </script>
+
+
+
 </body>
 </html>

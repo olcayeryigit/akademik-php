@@ -11,7 +11,7 @@
           foreach ($mainImages as $image): 
         ?>
         <div class="swiper-slide"> 
-          <img src="<?= base_url('' . $image); ?>" class="w-full h-full  rounded-xl object-contain"/>
+          <img src="<?= base_url('' . $image); ?>" class="w-full h-full  rounded-xl object-contain" alt="bursa koleji"/>
         </div>
         <?php endforeach; ?>
       </div>
@@ -38,7 +38,7 @@
           <?php
 $baseURL = getenv('app.baseURL');
 ?>
-       <form class="mt-4 space-y-4" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm">
+       <form class="mt-4 space-y-2" action="<?= site_url('submit_form'); ?>" method="POST" id="myForm">
     <!-- Ad -->
     <div>
         <label for="name" class="block text-xs text-black font-semibold">Adınız</label>

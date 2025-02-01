@@ -1,4 +1,3 @@
-
 <section id="announcement" class="bg-[#F3F3F3] mt-2 pt-6 md:px-0 md:mt-8 md:pt-8">
     <div class="container mx-auto bg-[#013042] rounded-t-xl">
         <div class="announcement-swiper-container overflow-hidden w-full relative">
@@ -6,7 +5,7 @@
                 <?php foreach ($publishedAnnouncements as $announcement): ?>
                     <div class="swiper-slide flex flex-col md:flex-row">
                         <div class="w-full md:w-1/2 p-6 md:px-10  md:py-8">
-                            <img src="<?php echo base_url('' . $announcement['image']); ?>" alt="Duyuru Resmi" class="w-full h-28 md:h-40 object-cover rounded-xl md:rounded-[2rem]" />
+                            <img src="<?php echo base_url('' . $announcement['image']); ?>" alt=<?php echo esc($announcement['title']); ?> class="w-full h-28 md:h-40 object-cover rounded-xl md:rounded-[2rem]" />
                         </div>
 
                         <div class="w-full md:w-1/3 p-6 text-white md:mt-4">
@@ -15,7 +14,7 @@
                                 <?php echo esc($announcement['description']); ?>
                             </p>
                             <div class="flex justify-end mt-4">
-                                <a href="/announcement/<?= esc($announcement['slug'])?>"  class="w-40 text-center py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-sm md:text-md text-white rounded-md font-bold">
+                                <a href="/blog/<?= esc($announcement['slug'])?>"  class="w-40 text-center py-1 bg-gradient-to-r from-[#FE5A01] via-[#FE7800] to-[#FF7B00] text-sm md:text-md text-white rounded-md font-bold">
                                     Devamını Oku!
                                 </a>
                             </div>

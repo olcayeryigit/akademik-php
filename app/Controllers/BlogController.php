@@ -6,33 +6,18 @@ use App\Models\BlogModel;
 
 class BlogController extends BaseController
 {
+    protected $blogModel;
 
- // BlogModel sınıfını başlatmak için özelliği tanımlıyoruz
- protected $blogModel;
-
- public function __construct()
- {
-     // BlogModel'i başlatıyoruz
-     $this->blogModel = new BlogModel();
- }
-
-
-    // Blogları listeleme
-    public function index()
+    public function __construct()
     {
-        $model = new BlogModel();
-        $blogs = $model->getBlogs();
-        return view('blog/index', ['blogs' => $blogs]);
+        $this->blogModel = new BlogModel();
     }
 
-    // Blog silme işlemi
-    public function delete($id)
+    // Tüm blogları listeleme
+    public function index()
     {
-        $model = new BlogModel();
-        $model->deleteBlog($id);
-
-        session()->setFlashdata('success', 'Blog başarıyla silindi!');
-        return redirect()->to('/dashboard');
+        $blogs = $this->blogModel->getBlogs();
+        return view('blog/index', ['blogs' => $blogs]);
     }
 
     // Blog oluşturma formunu gösterir
@@ -41,124 +26,107 @@ class BlogController extends BaseController
         return view('blog/create');
     }
 
-    // Blog verilerini kaydeder
+    // Blogu kaydeder
     public function store()
     {
         $title = $this->request->getPost('title');
-        $slug = $this->request->getPost('slug');
+        $slug = $this->generateSlug($this->request->getPost('slug'), $title);
         $description = $this->request->getPost('description');
 
         if (empty($title)) {
-            session()->setFlashdata('error', 'Başlık alanı boş olamaz!');
-            return redirect()->back()->withInput();
+            return $this->redirectWithError('Başlık alanı boş olamaz!');
         }
 
-        // Eğer slug boşsa, başlıktan slug oluştur
-        if (empty($slug)) {
-            $slug = mb_url_title($title, '-', true);
-        } else {
-            $slug = mb_url_title($slug, '-', true);
-        }
+        $imagePath = $this->uploadImage($this->request->getFile('image'));
 
-        $image = $this->request->getFile('image');
-        $imagePath = '';
-
-        if ($image && $image->isValid() && !$image->hasMoved()) {
-            $ext = $image->getExtension();
-            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
-            $imagePath = 'assets/uploads/' . $safeFileName;
-            $image->move(FCPATH . 'assets/uploads', $safeFileName);
-        }
-
-        $model = new BlogModel();
-        $model->save([
-            'title' => $title,
-            'slug' => $slug,
+        $this->blogModel->save([
+            'title'       => $title,
+            'slug'        => $slug,
             'description' => $description,
-            'image' => $imagePath,
-            'created_at' => date('Y-m-d H:i:s')
+            'image'       => $imagePath,
+            'created_at'  => date('Y-m-d H:i:s')
         ]);
 
-        return redirect()->to('/dashboard');
+        return $this->redirectWithSuccess('Blog başarıyla eklendi!');
     }
 
     // Blog güncelleme formunu gösterir
     public function edit($id)
     {
-        $model = new BlogModel();
-        $blog = $model->getBlog($id);
+        $blog = $this->blogModel->getBlog($id);
         return view('blog/edit', ['blog' => $blog]);
     }
 
-    // Blogu güncelleme işlemi
+    // Blogu günceller
     public function update()
     {
         $id = $this->request->getPost('id');
         $title = $this->request->getPost('title');
-        $slug = $this->request->getPost('slug');
+        $slug = $this->generateSlug($this->request->getPost('slug'), $title);
         $description = $this->request->getPost('description');
-        $image = $this->request->getFile('image');
+        $imagePath = $this->uploadImage($this->request->getFile('image'));
 
-        // Eğer slug boşsa, başlıktan slug oluştur
-        if (empty($slug)) {
-            $slug = mb_url_title($title, '-', true);
-        } else {
-            $slug = mb_url_title($slug, '-', true);
+        $updateData = [
+            'title'       => $title,
+            'slug'        => $slug,
+            'description' => $description,
+        ];
+
+        if (!empty($imagePath)) {
+            $updateData['image'] = $imagePath;
         }
 
-        $imagePath = '';
+        $this->blogModel->update($id, $updateData);
 
+        return $this->redirectWithSuccess('Blog başarıyla güncellendi!');
+    }
+
+    // Blogu siler
+    public function delete($id)
+    {
+        $this->blogModel->deleteBlog($id);
+        return $this->redirectWithSuccess('Blog başarıyla silindi!');
+    }
+
+
+
+    // Blog durumunu günceller
+    public function updateStatus($id, $status)
+    {
+        $this->blogModel->updateStatus($id, $status);
+        return $this->redirectWithSuccess('Blog durumu güncellendi!');
+    }
+
+    // Yardımcı fonksiyon: Slug oluşturur
+    private function generateSlug($slug, $title)
+    {
+        return mb_url_title(empty($slug) ? $title : $slug, '-', true);
+    }
+
+    // Yardımcı fonksiyon: Resmi yükler
+    private function uploadImage($image)
+    {
         if ($image && $image->isValid() && !$image->hasMoved()) {
             $ext = $image->getExtension();
             $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
             $imagePath = 'assets/uploads/' . $safeFileName;
             $image->move(FCPATH . 'assets/uploads', $safeFileName);
+            return $imagePath;
         }
+        return '';
+    }
 
-        $model = new BlogModel();
-        $model->update($id, [
-            'title' => $title,
-            'slug' => $slug,
-            'description' => $description,
-            'image' => $imagePath
-        ]);
-
+    // Yardımcı fonksiyon: Başarı mesajı ile yönlendir
+    private function redirectWithSuccess($message)
+    {
+        session()->setFlashdata('success', $message);
         return redirect()->to('/dashboard');
     }
 
-
-
-
-
-
-  // Blog detay sayfasını gösterir
-  public function viewBlog($slug)
-  {
-      $blogsModel = new BlogModel(); // Blog modelini çağır
-  
-      $blog = $blogsModel->where('slug', $slug)->first();
-  
-      if (!$blog) {
-          return redirect()->to('/404'); // Eğer blog bulunamazsa 404 sayfasına yönlendir
-      }
-  
-      // MainLayout için title parametresi gönder
-      return view('blog/view', [
-          'blog' => $blog,
-          'title' => $blog['title'] // Title'ı ilet
-      ]);
-  }
-  
-// Blog durumunu güncelleme işlemi
- // Blog durumu güncelleme
- public function updateStatus($id, $status)
-{
-    // Blog durumunu güncelle
-    $isUpdated = $this->blogModel->updateStatus($id, $status);  // Model üzerinden çağırıyoruz
-
-
-    return redirect()->to('/dashboard');
-}
-
-
+    // Yardımcı fonksiyon: Hata mesajı ile yönlendir
+    private function redirectWithError($message)
+    {
+        session()->setFlashdata('error', $message);
+        return redirect()->back()->withInput();
+    }
 }

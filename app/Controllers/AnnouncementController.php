@@ -5,30 +5,21 @@ use App\Models\AnnouncementModel;
 
 class AnnouncementController extends BaseController {
 
- // BlogModel sınıfını başlatmak için özelliği tanımlıyoruz
- protected $announcementModel;
+    protected $announcementModel;
 
- public function __construct()
- {
-     // BlogModel'i başlatıyoruz
-     $this->announcementModel = new AnnouncementModel();
- }
-
-
-
+    public function __construct() {
+        $this->announcementModel = new AnnouncementModel();
+    }
 
     // Duyuruları Listeleme
     public function index() {
-        $model = new AnnouncementModel();
-        $announcements = $model->getAnnouncements();
+        $announcements = $this->announcementModel->getAnnouncements();
         return view('announcement/index', ['announcements' => $announcements]);
     }
 
     // Duyuru Silme
     public function delete($id) {
-        $model = new AnnouncementModel();
-        $model->deleteAnnouncement($id);
-
+        $this->announcementModel->deleteAnnouncement($id);
         session()->setFlashdata('success', 'Duyuru başarıyla silindi');
         return redirect()->to('/dashboard');
     }
@@ -41,33 +32,19 @@ class AnnouncementController extends BaseController {
     // Duyuru Kaydetme
     public function store() {
         $title = $this->request->getPost('title');
-        $slug = $this->request->getPost('slug');
+        $slug = $this->generateSlug($this->request->getPost('slug'), $title);
         $description = $this->request->getPost('description');
-
-        // Eğer slug boşsa, başlıktan slug oluştur
-        if (empty($slug)) {
-            $slug = mb_url_title($title, '-', true);
-        }
 
         if (empty($title)) {
             session()->setFlashdata('error', 'Başlık alanı boş olamaz!');
             return redirect()->back()->withInput();
         }
 
-        $image = $this->request->getFile('image');
-        $imagePath = '';
+        $imagePath = $this->uploadImage($this->request->getFile('image'));
 
-        if ($image && $image->isValid() && !$image->hasMoved()) {
-            $ext = $image->getExtension(); // Dosyanın uzantısını al
-            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
-            $imagePath = 'assets/uploads/' . $safeFileName;
-            $image->move(FCPATH . 'assets/uploads', $safeFileName);
-        }
-
-        $model = new AnnouncementModel();
-        $model->save([
+        $this->announcementModel->save([
             'title'       => $title,
-            'slug'        => mb_url_title($slug, '-', true),
+            'slug'        => $slug,
             'description' => $description,
             'image'       => $imagePath,
             'created_at'  => date('Y-m-d H:i:s')
@@ -78,8 +55,7 @@ class AnnouncementController extends BaseController {
 
     // Duyuru Güncelleme Formu
     public function edit($id) {
-        $model = new AnnouncementModel();
-        $announcement = $model->getAnnouncement($id);
+        $announcement = $this->announcementModel->getAnnouncement($id);
         return view('announcement/edit', ['announcement' => $announcement]);
     }
 
@@ -87,70 +63,47 @@ class AnnouncementController extends BaseController {
     public function update() {
         $id = $this->request->getPost('id');
         $title = $this->request->getPost('title');
-        $slug = $this->request->getPost('slug');
+        $slug = $this->generateSlug($this->request->getPost('slug'), $title);
         $description = $this->request->getPost('description');
-        $image = $this->request->getFile('image');
+        $imagePath = $this->uploadImage($this->request->getFile('image'));
 
-        // Eğer slug boşsa, başlıktan slug oluştur
-        if (empty($slug)) {
-            $slug = mb_url_title($title, '-', true);
-        } else {
-            // Kullanıcı tarafından girilen slug da güvenli hale getiriliyor
-            $slug = mb_url_title($slug, '-', true);
-        }
-
-        $imagePath = '';
-
-        if ($image && $image->isValid() && !$image->hasMoved()) {
-            $ext = $image->getExtension(); // Dosyanın uzantısını al
-            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
-            $imagePath = 'assets/uploads/' . $safeFileName;
-            $image->move(FCPATH . 'assets/uploads', $safeFileName);
-        }
-
-        $model = new AnnouncementModel();
-        $model->update($id, [
+        $data = [
             'title'       => $title,
             'slug'        => $slug,
-            'description' => $description,
-            'image'       => $imagePath
-        ]);
+            'description' => $description
+        ];
+
+        if ($imagePath) {
+            $data['image'] = $imagePath;
+        }
+
+        $this->announcementModel->update($id, $data);
 
         return redirect()->to('/dashboard');
     }
 
+    // Duyuru durumunu güncelleme
+    public function updateStatus($id, $status) {
+        $this->announcementModel->updateStatus($id, $status);
+        return redirect()->to('/dashboard');
+    }
 
-// Duyuru durumunu güncelleme işlemi
- 
- public function updateStatus($id, $status)
-{
-    // Duyuru durumunu güncelle
-    $isUpdated = $this->announcementModel->updateStatus($id, $status);  // Model üzerinden çağırıyoruz
-
-
-    return redirect()->to('/dashboard');
-}
-
-
- // Blog detay sayfasını gösterir
- public function viewAnnouncement($slug)
- {
-     $announcementsModel = new AnnouncementModel(); // Blog modelini çağır
- 
-     $announcement = $announcementsModel->where('slug', $slug)->first();
- 
-     if (!$announcement) {
-         return redirect()->to('/404'); // Eğer blog bulunamazsa 404 sayfasına yönlendir
-     }
- 
-     // MainLayout için title parametresi gönder
-     return view('announcement/view', [
-         'announcement' => $announcement,
-         'title' => $announcement['title'] // Title'ı ilet
-     ]);
- }
  
 
+    // Yardımcı metot: Slug oluşturma
+    private function generateSlug($slug, $title) {
+        return empty($slug) ? mb_url_title($title, '-', true) : mb_url_title($slug, '-', true);
+    }
 
-
+    // Yardımcı metot: Resim yükleme
+    private function uploadImage($image) {
+        if ($image && $image->isValid() && !$image->hasMoved()) {
+            $ext = $image->getExtension();
+            $safeFileName = mb_url_title(pathinfo($image->getClientName(), PATHINFO_FILENAME), '-', true) . '.' . $ext;
+            $imagePath = 'assets/uploads/' . $safeFileName;
+            $image->move(FCPATH . 'assets/uploads', $safeFileName);
+            return $imagePath;
+        }
+        return null;
+    }
 }

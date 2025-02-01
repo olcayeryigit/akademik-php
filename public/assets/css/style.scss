@@ -1,8 +1,7 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&display=swap');
 
 body {
-  font-family: 'Lato', 'Open Sans', sans-serif;
+  font-family: 'Hind', sans-serif !important;
 }
 
 //form
@@ -75,63 +74,6 @@ body {
   }
   
 
-@media (min-width: 1024px) {
-  #mobile-menu-button{
-    display: none !important;
-  }
-
-}
-
-
-
-  
-  /* Hamburger iconunun başlangıç stilini belirleyelim */
-  #mobile-menu-button {
-    width: 25px;
-    height: 20px;
-    position: relative;
-    display: block;
-    margin-right: 10px;
-  }
-
-  #mobile-menu-button .line {
-    display: block;
-    background: #000000;
-    width: 30px;
-    height: 3px;
-    position: absolute;
-    left: 0;
-    border-radius: 4px;
-    transition: all 0.4s ease;
-  }
-
-  #mobile-menu-button .line.line-1 {
-    top: 0;
-  }
-
-  #mobile-menu-button .line.line-2 {
-    top: 50%;
-  }
-
-  #mobile-menu-button .line.line-3 {
-    top: 100%;
-  }
-
-  /* Hamburger aktif olduğunda dönüşüm */
- /* Hamburger aktif olduğunda dönüşüm */
-#mobile-menu-button.active .line.line-1 {
-  transform: translateY(10px) rotate(45deg); /* Çizgiyi yukarı kaydır ve döndür */
-
-}
-
-#mobile-menu-button.active .line.line-2 {
-  display:none;
-}
-
-#mobile-menu-button.active .line.line-3 {
-  transform: translateY(-10px) rotate(-45deg); /* Çizgiyi aşağı kaydır ve ters döndür */
-
-}
 
 
 

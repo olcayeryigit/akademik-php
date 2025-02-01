@@ -59,10 +59,11 @@ $routes->post('/testimonal/store','TestimonalsController::store');
 $routes->get('/testimonal/delete/(:num)', 'TestimonalsController::delete/$1');  // Blog silme
 
 //blog-detail
-$routes->get('blog/(:segment)', 'BlogController::viewBlog/$1'); 
-$routes->get('announcement/(:segment)', 'AnnouncementController::viewAnnouncement/$1'); 
+$routes->get('/blog/(:segment)', 'PageController::viewBlog/$1');
+
+
 //detaile tümünüde göndereceğim
-$routes->get('blog/(:segment)', 'BlogController::index'); 
+
 
 
 

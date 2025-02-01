@@ -270,6 +270,51 @@ $webforms = $this->webformModel->findAll();
     return view('dashboard',['title'=>'Dashboard','webforms'=>$webforms]);
 }
 
+
+
+
+
+
+// Blog detay sayfasını gösterir
+public function viewBlog($slug)
+{
+    // Slug parametresini kontrol et
+    log_message('debug', 'Slug değeri: ' . $slug);
+
+    // Blog verisini al
+    $blog = $this->blogModel->where('slug', $slug)->first();
+
+    if (!$blog) {
+        // Blog bulunamazsa, duyuru verisini al
+        $announcement = $this->announcementModel->where('slug', $slug)->first();
+        // Eğer duyuru da yoksa 404 sayfasına yönlendir
+        if (!$announcement) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    } else {
+        // Eğer blog varsa, duyuru null olacak
+        $announcement = null;
+    }
+
+    // Yayınlanmış blogları al
+    $publishedBlogs = $this->blogModel->getBlogsByStatus(1);
+
+    // Yayınlanmış duyuruları al
+    $publishedAnnouncements = $this->announcementModel->getAnnouncementsByStatus(1);
+
+    // Başlık, blog varsa blog başlığı, yoksa duyuru başlığı
+    $title = $blog ? $blog['title'] : ($announcement ? $announcement['title'] : 'Başlık Bulunamadı');
+
+    return view('blog/view', [
+        'blog' => $blog,
+        'publishedBlogs' => $publishedBlogs,
+        'announcement' => $announcement,
+        'publishedAnnouncements' => $publishedAnnouncements,
+        'title' => $title
+    ]);
+}
+
+
    
 }
 

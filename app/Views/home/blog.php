@@ -4,9 +4,9 @@
 
 <section id="blog" class="bg-[#F3F3F3] pb-6 md:pb-8">
 <div class="container mx-auto bg-[#F9F9F9]">
-<div class="flex  p-4 gap-4 gap-4 md:gap-8 md:p-8">
+<div class="flex  p-4 gap-4  md:gap-8 md:p-8">
   <!-- Blog  SOL  -->
-<div class="py-6 px-2 sm:px-4 space-y-3 md:w-1/4 border-r-2 border-r-[#FF5F01]">
+<div class="py-6 px-4 md:ps-4 space-y-3 md:w-1/4 border-r-2 border-r-[#FF5F01]">
 <div class="logo flex flex-col lg:flex-row items-center gap-2">
     <div class="bg-white rounded-full px-1 py-2">
     <img src="/assets/icons/logo-amblem.svg" alt="Logo" class="h-10 md:h-14 object-contain">
@@ -32,7 +32,7 @@
 <?php foreach ($publishedBlogs as $blog): ?>
     <div class="swiper-slide">
         <div class="card bg-white rounded-lg p-4">
-            <img src="<?= base_url('' . $blog['image']); ?>" alt="Blog Resmi" class="w-full h-32 object-cover rounded-lg" />
+            <img src="<?= base_url('' . $blog['image']); ?>" alt=<?= esc($blog['title']); ?>class="w-full h-32 object-cover rounded-lg" />
             <div class="card-content mt-4">
                 <h3 class="text-md font-semibold"><?= esc($blog['title']); ?></h3>
                 <p class="text-gray-600 mt-2 line-clamp-2 text-sm"><?= esc($blog['description']); ?></p>
