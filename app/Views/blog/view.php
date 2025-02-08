@@ -8,7 +8,7 @@
         <div class="md:w-3/4">
             <?php if ($blog): ?>
                     <img src="<?= base_url($blog['image']); ?>" alt="<?= esc($blog['title']) ?>" 
-        class="w-full h-80 object-cover rounded-lg shadow-lg" />
+        class="w-full rounded-lg shadow-lg object-contain" />
         <h1 class="text-xl font-semibold text-gray-800 mt-4 mb-4"><?= esc($blog['title']) ?></h1>
     
         <p class="text-md text-gray-600 leading-relaxed"><?= esc($blog['description']) ?></p>
