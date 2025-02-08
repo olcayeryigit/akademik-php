@@ -186,14 +186,14 @@ $baseURL = getenv('app.baseURL');
 </a>
 
 
-<header class="">
+<header class="" id="home">
 
 
 
 
   <div class="container mx-auto flex justify-between items-center bg-[#F4F4F4] text-[#666666] mt-2 md:rounded-xl px-4 py-1">
     <!-- Logo -->
-    <a href="#home" class="logo flex items-center gap-2">
+    <a href="#home" class="nav-link  logo flex items-center gap-2">
       <div class="bg-white rounded-full px-1 py-2">
         <img src="<?= $baseURL ?>/assets/icons/logo-amblem.svg" alt="Logo" class="h-12 object-contain">
       </div>
@@ -218,7 +218,7 @@ $baseURL = getenv('app.baseURL');
   <ul class="flex space-x-6">
     <li><a href="#home" class="nav-link hover:text-[#760E0E]">Anasayfa</a></li>
     <li><a href="#about" class="nav-link hover:text-[#760E0E]">Hakkımızda</a></li>
-    <li><a href="#" class="nav-link hover:text-[#760E0E]">Eğitimlerimiz</a></li>
+    <li><a href="#announcement" class="nav-link hover:text-[#760E0E]">Eğitimlerimiz</a></li>
     <li><a href="#blog" class="nav-link hover:text-[#760E0E]">Blog</a></li>
   </ul>
 </nav>
@@ -238,11 +238,10 @@ $baseURL = getenv('app.baseURL');
   <div id="mobile-menu" class=" hidden absolute top-20 left-0 w-full bg-gray-50 text-[#666666] shadow-lg z-[99999]">
     <div class="p-4">
       <ul class="space-y-4">
-      <li><a href="#home" class="block hover:text-[#760E0E]">Anasayfa</a></li>
-        <li><a href="#about" class="block hover:text-[#760E0E]">Hakkımızda</a></li>
-        <li><a href="#" class="block hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="<?= $baseURL ?>/assets/icons/header-ok.svg" class="h-2 object-contain" /></a></li>
-        <li><a href="#blog" class="block hover:text-[#760E0E]">Blog</a></li>
-        <li><a href="#" class="block hover:text-[#760E0E]">Kurumsal</a></li>
+      <li><a href="#home" class="nav-link  block hover:text-[#760E0E]">Anasayfa</a></li>
+        <li><a href="#about" class="nav-link  block hover:text-[#760E0E]">Hakkımızda</a></li>
+        <li><a href="#" class="nav-link  block hover:text-[#760E0E] flex items-center gap-1"><span>Eğitimlerimiz</span><img src="<?= $baseURL ?>/assets/icons/header-ok.svg" class="nav-link  h-2 object-contain" /></a></li>
+        <li><a href="#blog" class="nav-link  block hover:text-[#760E0E]">Blog</a></li>
       </ul>
      
     </div> <div class="flex justify-between p-4 bg-[#F4F4F4]">
@@ -287,11 +286,11 @@ $baseURL = getenv('app.baseURL');
         <div class="md:w-1/2 ">
           <h3 class="text-md font-bold mb-2 text-[#FEFEFE]   inline-block border-b-2 border-white pb-1">Hızlı Menü</h3>
           <ul class="space-y-2 text-[#F8F8F8] text-xs md:text-sm">
-            <li><a href="#home" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
-            <li><a href="#about" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
-            <li><a href="#blog" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
+            <li><a href="#home" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
+            <li><a href="#about" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
+            <li><a href="#blog" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
           </ul>
         </div>
 
@@ -301,11 +300,11 @@ $baseURL = getenv('app.baseURL');
 
           
           <ul class="space-y-2 text-[#F8F8F8] text-xs md:text-sm">
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
-            <li><a href="#" class="transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Anasayfa</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Hakkımızda</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">İletişim</a></li>
+            <li><a href="#" class="nav-link transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Blog</a></li>
+            <li><a href="#" class="nav-link  transition-colors duration-300 ease-in-out hover:text-[#ffc896]">Eğitimlerimiz</a></li>
           </ul>
 
 

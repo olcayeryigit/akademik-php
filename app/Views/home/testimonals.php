@@ -1,4 +1,4 @@
-<section id="" class="container mx-auto pt-10 pb-8 md:px-0 lg:px-12 md:py-16">
+<section id="" class="container mx-auto pt-10 pb-8 md:px-0 lg:px-12 md:py-12">
 
   <div class="testimonials-swiper-container overflow-hidden w-full relative">
     <div class="swiper-wrapper flex md:flex-row md:items-center md:justify-center gap-2">

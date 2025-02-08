@@ -9,14 +9,14 @@
             <?php if ($blog): ?>
                     <img src="<?= base_url($blog['image']); ?>" alt="<?= esc($blog['title']) ?>" 
         class="w-full h-80 object-cover rounded-lg shadow-lg" />
-        <h1 class="text-xl font-semibold text-gray-800 mb-4"><?= esc($blog['title']) ?></h1>
+        <h1 class="text-xl font-semibold text-gray-800 mt-4 mb-4"><?= esc($blog['title']) ?></h1>
     
         <p class="text-md text-gray-600 leading-relaxed"><?= esc($blog['description']) ?></p>
         <!-- Blog içeriği burada -->
     <?php elseif ($announcement): ?>
         <img src="<?= base_url($announcement['image']); ?>" alt="<?= esc($announcement['title']) ?>" 
         class="w-full h-80 object-cover rounded-lg shadow-lg" />
-        <h1 class="text-xl font-semibold text-gray-800 mb-4"><?= esc($announcement['title']) ?></h1>
+        <h1 class="text-xl font-semibold text-gray-800 mt-4 mb-4"><?= esc($announcement['title']) ?></h1>
         <p class="text-md text-gray-600 leading-relaxed"><?= esc($announcement['description']) ?></p>
         <!-- Duyuru içeriği burada -->
     <?php endif; ?>
@@ -26,7 +26,7 @@
 
         <div class="md:w-1/4 bg-white rounded-lg shadow-lg overflow-hidden px-4 py-6">
             <div class="">
-                <h2>Diğer Yazılar</h2>
+                <h2 class="mb-4 font-semibold">Diğer Yazılar</h2>
 
     <?php foreach ($publishedBlogs as $blog): ?>
             <li  class="flex  gap-1">

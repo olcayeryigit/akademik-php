@@ -17,11 +17,11 @@
     <h1 class="text-4xl font-bold mb-3">KURUMSAL</h1>
     <p><?= esc($about[0]['mainparagraph']); ?></p> <!-- İlk paragrafı göster -->
 
- <div class="flex flex-col md:flex-row mt-4 md:mt-12">
+ <div class="flex flex-col md:flex-row mt-4 md:mt-6">
 
 
 
-<div class="flex flex-col md:flex-row  md:px-8 mb-6">
+<div class="flex flex-col md:flex-row  md:px-8 mb-6 md:mb-0">
 <img src="/assets/images/misyon.png" class="w-40 md:w-60 object-contain"/>
 <div>
 <h1 class="text-2xl font-bold mb-3 ">Misyonumuz</h1>
@@ -81,7 +81,7 @@
 
 
 
-<p class="mt-8 hidden md:block"  ><?= esc($about[0]['paragraph2']); ?></p> 
+<p class="mt-6 hidden md:block"  ><?= esc($about[0]['paragraph2']); ?></p> 
 
 <p class="mt-4 hidden md:block"><?= esc($about[0]['paragraph3']); ?></p> 
 

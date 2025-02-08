@@ -4,13 +4,13 @@
 <div class="container mx-auto mt-6 md:mt-12 px-2 md:px-0 ">
   <div class="flex flex-col lg:flex-row justify-between gap-4 ">
     <!-- Main Slider -->
-    <div class="main-swiper-container overflow-hidden w-full md:pt-1 md:h-full relative rounded-xl">
-      <div class="swiper-wrapper">
+    <div class="main-swiper-container overflow-hidden w-full  md:h-full relative rounded-xl">
+      <div class="swiper-wrapper rounded-xl ">
         <?php 
           $mainImages = json_decode($mainContent[0]['mainImage'], true); // mainImage JSON'dan PHP dizisine dönüştürülür
           foreach ($mainImages as $image): 
         ?>
-        <div class="swiper-slide"> 
+        <div class="swiper-slide rounded-xl"> 
           <img src="<?= base_url('' . $image); ?>" class="w-full h-full  rounded-xl object-contain" alt="bursa koleji"/>
         </div>
         <?php endforeach; ?>
@@ -29,7 +29,7 @@
     <!-- Form ve Resim -->
     <div class="w-full lg:w-1/3 flex flex-col">
       <!-- FORM -->
-      <div class="hidden lg:block p-1 animate-bg-color rounded-2xl shadow-md m">
+      <div class="hidden lg:block p-1 animate-bg-color rounded-2xl shadow-md ">
         <div class="px-3 py-2 bg-white rounded-xl">
           <div class="flex items-center gap-2 mb-2">
             <img src="/assets/icons/bilgi-formu-icon.svg" class="h-8"/>

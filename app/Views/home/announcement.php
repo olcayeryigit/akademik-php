@@ -5,7 +5,7 @@
                 <?php foreach ($publishedAnnouncements as $announcement): ?>
                     <div class="swiper-slide flex flex-col md:flex-row">
                         <div class="w-full md:w-1/2 p-6 md:px-10  md:py-8">
-                            <img src="<?php echo base_url('' . $announcement['image']); ?>" alt=<?php echo esc($announcement['title']); ?> class="w-full h-28 md:h-40 object-cover rounded-xl md:rounded-[2rem]" />
+                            <img src="<?php echo base_url('' . $announcement['image']); ?>" alt=<?php echo esc($announcement['title']); ?> class="w-full h-28 md:h-full object-cover rounded-xl md:rounded-[2rem]" />
                         </div>
 
                         <div class="w-full md:w-1/3 p-6 text-white md:mt-4">
